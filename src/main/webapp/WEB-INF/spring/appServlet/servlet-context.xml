@@ -27,15 +27,17 @@
 	</beans:bean>
 
 	<context:component-scan
-		base-package="com.son.spring.controllers" />
+		base-package="com.son.mypc.controllers" />
+	<context:component-scan
+		base-package="com.son.mypc.service.impl" />		
 
 	<!-- 인터셉터 등록 -->
 	<interceptors>
 		<interceptor>
 			<mapping path="/**" />
 			<beans:bean id="appInterceptor"
-				class="com.son.spring.interceptor.AppInterceptor" />
+				class="com.son.mypc.interceptor.AppInterceptor" />
 		</interceptor>
-	</interceptors>
+	</interceptors>	
 
 </beans:beans>

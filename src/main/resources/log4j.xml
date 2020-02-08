@@ -14,7 +14,7 @@
     <!-- 파일로 기록되는 로그 설정 -->
     <appender name="rollingFile" class="org.apache.log4j.RollingFileAppender">
         <!-- 로그 파일 생성위치 -->
-        <param name="file" value="C:/Users/Jonghyun/Desktop/jh/workspace_spring/log/web.log" />
+        <param name="file" value="C:/Users/Jonghyun/Desktop/jh/workspace_portfolio/log/web.log" />
         <param name="Append" value="true" />
         <!-- 로그 파일 하나당 사이즈 100m -->
         <param name="MaxFileSize" value="100mb" />
@@ -28,7 +28,7 @@
     <!-- 날짜별 에러 로그 생성 -->
     <appender name="errorFile" class="org.apache.log4j.DailyRollingFileAppender">
         <param name="Threshold" value="ERROR" />
-        <param name="File" value="C:/Users/Jonghyun/Desktop/jh/workspace_spring/log/error.log" />
+        <param name="File" value="C:/Users/Jonghyun/Desktop/jh/workspace_portfolio/log/error.log" />
         <param name="Append" value="true" />
         <param name="DatePattern" value="'.'yyMMdd" />
         <layout class="org.apache.log4j.PatternLayout">
@@ -41,7 +41,7 @@
         study.spring.simplespring 패키지 하위의 모든 클래스에서 발생하는 로그를 기록함
         프로젝트 상황에 맞게 수정필요.
     -->
-    <logger name="com.son.spring">
+    <logger name="com.son.mypc">
         <level value="debug" />
     </logger>
 

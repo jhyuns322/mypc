@@ -1,8 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.3.xsd">
+
+	<!-- Helper 구동에 필요한 환경설정 값 -->
+	<util:properties id="config">
+		<!-- 기본 인코딩 타입 -->
+		<prop key="encType">UTF-8</prop>
+		<!-- 업로드 디렉토리 -->
+		<prop key="uploadDir">C:/Users/Jonghyun/Desktop/jh/workspace_portfolio/mypc/src/main/webapp/WEB-INF/views/assets/img</prop>
+<!-- 		<prop key="uploadDir">/usr/local/tomcat8/webapps/mypc/WEB-INF/views/assets/img</prop> -->
+		<!-- 최대 업로드 가능 용량 -->
+		<prop key="uploadMaxFileSize">20000000</prop>
+		<!-- 기본 도메인(쿠키설정용) -->
+		<prop key="domain">localhost</prop>
+<!-- 		<prop key="domain">jonghyunson.iptime.org</prop> -->
+	</util:properties>
 	
-	<!-- Root Context: defines shared resources visible to all other web components -->
-		
+	<!-- WebHelper 주입 설정 -->
+	<bean id="webHelper"
+		class="com.son.mypc.helper.WebHelper">
+		<property name="encType" value="#{config['encType']}" />
+		<property name="uploadDir" value="#{config['uploadDir']}" />
+		<property name="uploadMaxFileSize">
+			<value type="java.lang.Long">
+				#{config['uploadMaxFileSize']}
+			</value>
+		</property>
+		<property name="domain" value="#{config['domain']}" />
+	</bean>	
+
 </beans>

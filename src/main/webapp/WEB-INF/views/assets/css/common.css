@@ -1,0 +1,232 @@
+@charset "UTF-8";
+
+/* 태블릿, 데스크탑 (width 768px 이상 css 적용) */
+@media ( min-width : 768px) {
+	/* 공통영역 */
+	body {
+		width: 100%;
+		padding-top: 50px;
+	}
+	.common-hide {
+		display: none;
+	}
+	.common-nav {
+		border-bottom: none;
+	}
+	.common-nav .common-nav-header {
+		width: 15%;
+	}
+	.common-navbar-brand {
+		width: 100%;
+		padding: 4px;
+	}
+	.common-img-logo {
+		width: 80%;
+		height: 100%;
+	}
+	.common-nav-ul01 {
+		width: 60%;
+		text-align: center;
+	}
+	.common-nav-ul01 li {
+		width: 25%;
+	}
+	.common-nav-ul01 li a {
+		width: 100%;
+	}
+	.common-nav-ul02 {
+		width: 25%;
+		text-align: center;
+	}
+	.common-nav-ul02 li:first-child {
+		width: 40%;
+	}
+	.common-nav-ul02 li:nth-child(n+2) {
+		width: 30%;
+	}
+	.common-nav-ul02 li a {
+		width: 100%;
+	}
+	.common-form {
+		width: 60%;
+		padding-top: 10px;
+	}
+	.common-input {
+		width: 85%;
+		height: 30px;
+	}
+	.common-input:focus {
+		border-color: hotpink;
+	}
+	.common-submenu-ul01 {
+		width: 100%;
+		text-align: center;
+	}
+	.sub01 {
+		width: 40%;
+	}
+	.sub02 {
+		width: 16.5%;
+	}
+	.sub03 {
+		width: 30%;
+	}
+	.sub04 {
+		width: 25%;
+	}
+
+	.content {
+		min-height: 744px;
+		margin-bottom: 40px;
+	}
+
+	.common-container {
+		bottom: 0;
+		background-color: rgb(26, 26, 26);
+	}
+	.common-footer {
+		font-size: 12px;
+		color: #aaa;
+		width: 100%;
+		height: 100px;
+		padding: 0;
+	}
+	.common-footer>address {
+		padding-top: 10px;
+		color: white;
+		text-align: center;
+	}
+	.mypc-icon {
+		margin-top: 10px;
+		cursor: pointer;
+		font-size: 25px;
+		display: inline;
+		margin-right: 10px;
+	}
+}
+
+@media ( max-width : 767px) {
+	.mypc-margin {
+		margin: 70px 0 0 30px;
+	}
+	.common-img-logo {
+		float: left;
+		width: 30%;
+		height: 130%;
+	}
+}
+
+.mypc-sideBar {
+	width: 200px;
+	height: 453px;
+	position: fixed;
+	top: 246px;
+	right: -180px;
+	transition: 0.4s;
+	z-index: 10000;
+	overflow: hidden;
+	background: rgba(0, 0, 0, 0.6);
+	border: 0.5px solid #999;
+	border-bottom-left-radius: 10px;
+	border-top-left-radius: 10px;
+	padding-bottom: 1px;
+}
+
+.mypc-sideBar-side {
+	float: left;
+	line-height: 440px;
+	color: #444;
+	font-size: 2em;
+	text-shadow: 0px 1px 2px #000;
+	margin-left: 3px;
+	transition: 0.4s;
+}
+
+.mypc-sideBar-side>div {
+	float: right;
+	line-height: 440px;
+	color: #444;
+	font-size: 1.2em;
+	text-shadow: 0px 1px 2px #000;
+}
+
+.top-btn {
+	position: absolute;
+	top: 2px;
+	right: 53%;
+	color: #aaa;
+	font-size: 1.1em;
+}
+
+.bottom-btn {
+	position: absolute;
+	bottom: 2px;
+	right: 43%;
+	color: #aaa;
+	font-size: 1.1em;
+}
+
+.top-btn:hover, .bottom-btn:hover {
+	color: #f1f1f1;
+	text-decoration: none;
+}
+
+.side_ul_list {
+	overflow-y: scroll;
+	height: 350px;
+	width: 176px;
+}
+
+.mypc-sideBar .side-title {
+	font-size: 0.9em;
+	margin-top: 40px;
+	color: white;
+	text-align: center;
+	margin-right: 50px;
+}
+
+.mypc-sideBar .empty-item {
+	font-size: 0.8em;
+	color: white;
+	text-align: center;
+	margin-right: 21px;
+	margin-top: 157px;
+}
+
+.mypc-sideBar-img {
+	display: block;
+	width: 90px;
+	height: 90px;
+	background-color: white;
+	border-radius: 16px;
+	margin-left: 20px;
+	position: relative;
+}
+
+.mypc-sideBar-img>.mypc-cookieRemove {
+	position: absolute;
+	top: 0px;
+	right: -15px;
+	color: white;
+}
+
+.mypc-sideBar-img img {
+	width: 100%;
+	height: 100%;
+	border-radius: 16px;
+}
+
+.mypc-sideBar-name {
+	display: block;
+	color: #ccc;
+	margin: 10px 31px 20px 5px;
+	text-align: center;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+.mypc-sideBar-name:hover {
+	color: #f1f1f1;
+	text-decoration: none;
+}
