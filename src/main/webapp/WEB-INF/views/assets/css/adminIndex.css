@@ -1,0 +1,41 @@
+@charset "UTF-8";
+
+/* 컨텐츠 */
+#contents {
+	min-height: 784px;
+}
+
+/* 제목 */
+.mypc-title {
+	margin-top: 50px;
+	margin-bottom: 100px;
+}
+
+/* 메뉴컨테이너 */
+.mypc-menucontainer {
+	margin: 5px 0;
+}
+
+/* 메뉴박스 */
+.mypc-menubox {
+	text-align: center;
+	padding-top: 50px;
+	border-radius: 20px;
+	border: 1px solid grey;
+	height: 300px;
+	box-shadow:
+}
+
+/* 메뉴박스 안 글리피콘 */
+.mypc-menubox .glyphicon {
+	font-size: 100px;
+	padding-bottom: 40px;
+}
+
+.mypc-font-color {
+	color: #f00;
+}
+
+.mypc-padding {
+	padding-top: 10px;
+}

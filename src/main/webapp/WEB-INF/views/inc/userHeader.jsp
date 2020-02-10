@@ -14,21 +14,18 @@
 					<span class="sr-only">메뉴열기</span> <span class="icon-bar"></span>
 					<span class="icon-bar"></span> <span class="icon-bar"></span>
 				</button>
-				<!--// 반응형 메뉴 버튼 -->
 				<c:url value="/" var="homeUrl" />
 				<!-- 로고 이미지 사이즈 (110x45) -->
 				<a class="navbar-brand common-navbar-brand" href="${homeUrl}">
 					<img class="common-img-logo center-block" src="${pageContext.request.contextPath}/download?file=logo.png" />
 				</a>
-				<!--// 로고 -->
 			</div>
-			<!--// 로고 영역 -->
 
 			<!-- 메뉴 영역 -->
 			<div class="navbar-collapse collapse">
 				<!-- 메뉴항목 -->
 				<ul id="common-nav-ul01" class="nav navbar-nav common-nav-ul01">
-					<li><a data-submenu="sub01" href="aboutUs">About Us</a></li>
+					<li><a data-submenu="sub01" href="adminLogin">관리자 페이지</a></li>
 					<li><a data-submenu="sub02" href="itemList">상품목록</a></li>
 					<li><a data-submenu="sub03" href="boardMain">게시판</a></li>
 					<li><a data-submenu="sub04" href="support">고객센터</a></li>
@@ -51,34 +48,26 @@
 						</c:otherwise>
 					</c:choose>
 				</ul>
-				<!--// 메뉴항목 -->
 			</div>
 			<!-- 서브메뉴 영역 -->
 			<div id="common-submenu" class="navbar-collapse collapse">
 				<ul id="common-submenu-ul01" class="nav navbar-nav common-submenu-ul01 common-hide"></ul>
 			</div>
-			<!--// 서브메뉴 영역 -->
 		</div>
 	</nav>
 	
-	<!-- 사이드바 영역 -->
+	<!-- 사이드바(최근 본 상품) 영역 -->
 	<div class="mypc-sideBar">
 		<div class="mypc-sideBar-side">l
 			<div>l
 			</div>
 		</div>
-		
 		<a href="#" class="top-btn">TOP</a>
-	
 		<div class="side-title">최근 본 상품</div>
 		<form id="cookie_form" method="POST" class="sidebar-form" action="cookieList">
 			<ul id="cookie_list" class="side_ul_list">
 			</ul>
 		</form>
-		
 		<a href="#" class="bottom-btn">BOTTOM</a>
 	</div>
-	<!--// 사이드바 영역 -->
-	
 </header>
-<!--// 헤드 영역 -->

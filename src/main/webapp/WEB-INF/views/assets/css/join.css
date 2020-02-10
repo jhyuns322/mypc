@@ -1,0 +1,26 @@
+@charset "UTF-8";
+
+#edit_id {
+	display: none;
+}
+
+#edit_email {
+	display: none;
+}
+
+.mypc-agreeckbox {
+	margin-top: 9px !important;
+}
+
+.form-group input {
+	font-size: 0.8em;
+}
+
+.join-form button{
+	background-color:#333;
+	border-style:none;
+}
+
+.join-form button:hover{
+	background-color:#333;
+}

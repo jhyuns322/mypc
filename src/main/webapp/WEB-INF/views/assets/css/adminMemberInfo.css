@@ -1,0 +1,9 @@
+@charset "UTF-8";
+
+#edit_email {
+	display: none;
+}
+
+.form-group input {
+	font-size: 0.8em;
+}

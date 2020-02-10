@@ -17,8 +17,34 @@
 		<!-- 기본 도메인(쿠키설정용) -->
 		<prop key="domain">localhost</prop>
 <!-- 		<prop key="domain">jonghyunson.iptime.org</prop> -->
+		<!-- 메일발송 서버 주소 -->
+		<prop key="smtpHost">smtp.gmail.com</prop>
+		<!-- 메일발송 서버 포트 -->
+		<prop key="smtpPort">465</prop>
+		<!-- 메일발송 서버 계정 -->
+		<prop key="smtpUsername">jhyuns322@gmail.com</prop>
+		<!-- 메일발송 서버 비밀번호 -->
+		<prop key="smtpPassword">bwxpmdubhqejdpmu</prop>
 	</util:properties>
-	
+
+	<!-- DB연동에 필요한 환경설정 값 -->
+	<util:properties id="dbConfig">
+		<!-- 데이터베이스 호스트 이름 -->
+		<prop key="dbHost">localhost</prop>
+		<!-- 데이터베이스 포트번호 -->
+		<prop key="dbPort">3306</prop>
+		<!-- 데이터베이스 이름 -->
+		<prop key="dbName">mypc</prop>
+		<!-- 데이터베이스 문자셋 -->
+		<prop key="dbCharset">utf8</prop>
+		<!-- 데이터베이스 계정명 -->
+		<prop key="dbUsername">jonghyun</prop>
+		<!-- 데이터베이스 비밀번호 -->
+		<prop key="dbPassword">3022</prop>
+		<!-- Mapper 파일들이 위치할 '/src/main/resources' 하위의 경로 -->
+		<prop key="mapperPath">/mappers/**/*Mapper.xml</prop>
+	</util:properties>
+
 	<!-- WebHelper 주입 설정 -->
 	<bean id="webHelper"
 		class="com.son.mypc.helper.WebHelper">
@@ -31,5 +57,76 @@
 		</property>
 		<property name="domain" value="#{config['domain']}" />
 	</bean>	
+
+	<!-- DownloadHelper 주입 설정 -->
+	<bean id="downloadHelper"
+		class="com.son.mypc.helper.DownloadHelper">
+		<property name="uploadDir" value="#{config['uploadDir']}" />
+	</bean>
+
+	<!-- RegexHelper 주입 설정 -->
+	<bean id="regexHelper"
+		class="com.son.mypc.helper.RegexHelper" />
+
+	<!-- RetrofitHelper 주입 설정 -->
+	<bean id="retrofitHelper"
+		class="com.son.mypc.helper.RetrofitHelper" />
+
+	<!-- 메일 발송에 필요한 정보를 저장하는 객체 정의 -->
+	<bean id="mailSender"
+		class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property name="host" value="#{config['smtpHost']}" />
+		<property name="port" value="#{config['smtpPort']}" />
+		<property name="username" value="#{config['smtpUsername']}" />
+		<property name="password" value="#{config['smtpPassword']}" />
+		<property name="defaultEncoding" value="#{config['encType']}" />
+		<property name="javaMailProperties">
+			<props>
+				<prop key="mail.smtp.starttls.enable">true</prop>
+				<prop key="mail.smtp.auth">true</prop>
+				<prop key="mail.smtp.debug">true</prop>
+				<prop key="mail.smtp.socketFactory.port">#{config['smtpPort']}</prop>
+				<prop key="mail.smtp.socketFactory.class">javax.net.ssl.SSLSocketFactory</prop>
+				<prop key="mail.smtp.socketFactory.fallback">false</prop>
+			</props>
+		</property>
+	</bean>
+
+	<!-- Mail Helper 주입 설정 -->
+	<bean id="mailHelper"
+		class="com.son.mypc.helper.MailHelper">
+		<constructor-arg ref="mailSender" />
+	</bean>
+
+	<!-- ======= DATABASE 연동 설정 ======= -->
+	<!-- JDBC 객체 생성 -->
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName"
+			value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy" />
+		<property name="url"
+			value="jdbc:log4jdbc:mysql://#{dbConfig['dbHost']}:#{dbConfig['dbPort']}/#{dbConfig['dbName']}?characterEncoding=#{dbConfig['dbCharset']}&amp;serverTimezone=UTC" />
+		<property name="username" value="#{dbConfig['dbUsername']}" />
+		<property name="password" value="#{dbConfig['dbPassword']}" />
+	</bean>
+
+	<!-- SQLSessionFactory 객체 생성 -->
+	<bean id="sqlSessionFactory"
+		class="org.mybatis.spring.SqlSessionFactoryBean">
+		<!-- JDBC 객체를 dataSource에 대한 setter 메서드를 통해 주입 -->
+		<property name="dataSource" ref="dataSource" />
+		<!-- MyBatis Mapper 파일들에 대한 경로 패턴 주입 -->
+		<property name="mapperLocations"
+			value="classpath:#{dbConfig['mapperPath']}" />
+	</bean>
+
+	<!-- SQLSession 객체 생성. 이 객체가 Service 패턴에 주입된다. -->
+	<bean id="sqlSession"
+		class="org.mybatis.spring.SqlSessionTemplate"
+		destroy-method="clearCache">
+		<!-- 생성자를 통해 SQLSessionFactory 객체 주입 -->
+		<constructor-arg name="sqlSessionFactory"
+			ref="sqlSessionFactory" />
+	</bean>
 
 </beans>

@@ -1,0 +1,21 @@
+@charset "UTF-8";
+
+.mypc-pagination-center {
+	text-align: center;
+	display: lnline-block;
+}
+
+.mypc-searchForm {
+	margin-bottom: 40px;
+}
+
+.table>tbody>tr{
+	height:55px;
+}
+
+.table>tbody>tr>td{
+	overflow:hidden;
+	white-space : nowrap;
+	text-overflow: ellipsis;
+	vertical-align:middle;
+}

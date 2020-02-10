@@ -1,0 +1,247 @@
+@charset 'utf-8';
+
+/** 로그인 박스 */
+.mypc-login-box {
+	width:500px;
+	height:400px;
+	margin:150px auto 0 auto;
+	border : 1px solid #bbb;
+	padding: 0 114px;
+	text-align: center;
+	overflow: hidden;
+	position: relative;
+}
+
+/** 로그인박스 로고 */
+.mypc-login-box .mypc-login-box-logo {
+	margin-top: 40px;
+	font-family: 'Audiowide','Helvetica' cursive;
+	font-weight: black;
+	font-size: 40px;
+}
+
+.mypc-login-box .mypc-slide-box .mypc-login-box-logo {
+	font-size: 20px;
+}
+
+/** 로그인 슬라이드 박스 */
+.mypc-slide-box{
+	width: 498px;
+	height: 210px;
+	position: absolute;
+	transition: all 0.3s;
+}
+
+.mypc-slide-box:nth-child(2){
+	left: 0;
+}
+.mypc-slide-box:nth-child(3){
+	left: 498px;
+}
+.mypc-slide-box:nth-child(4){
+	left: 498px;
+}
+
+.mypc-slide-box:nth-child(5){
+	left: 498px;
+}
+
+
+/** 로그인 인풋박스 */
+.mypc-input-box{
+	position: relative;
+}
+
+.mypc-input-box input {
+	text-indent: 1.5em;
+	font-size:13px;
+
+	border-radius: 5px;
+	border: 1px solid #ccc;
+	width: 300px;
+	height: 50px;
+	display: block;
+	background-color: #fff;
+	margin:20px auto 0;
+}
+
+.mypc-input-box span{
+	position: absolute;
+	top: 37px;
+	left: 129px;
+	font-size: 0.8em;
+	color: #777;
+	display: block;
+	padding: 0 3px;
+	background-color: white;
+	transition: all 0.16s;
+}
+
+.mypc-input-box .mypc-input-click{
+	font-size: 0.7em;
+	top: 14px;
+	left: 120px;
+	color: black;
+}
+
+/** 로그인 버튼 */
+#mypc-login-button {
+	margin-top: 10px;
+	width: 300px;
+	background-color: white;
+	border: 1px solid #ddd;
+}
+
+/** 로그인 아이디/비밀번호 찾기 */
+#mypc-find-info {
+	font-size: 10px;
+	margin-left:184px;
+	margin-top: 14px;
+}
+
+#mypc-find-info a {
+	color: #000;
+}
+
+/** 로그인 아이디 찾기 */
+#mypc-find-id-box{
+	position: relative;
+}
+
+#mypc-find-id-box input {
+	text-indent: 1.5em;
+	font-size:13px;
+
+	border-radius: 5px;
+	border: 1px solid #ccc;
+	width: 300px;
+	height: 50px;
+	display: block;
+	background-color: #fff;
+	margin:20px auto 0;
+}
+
+#mypc-find-id-box span{
+	position: absolute;
+	top: 37px;
+	left: 129px;
+	font-size: 0.8em;
+	color: #777;
+	display: block;
+	padding: 0 3px;
+	background-color: white;
+	transition: all 0.2s;
+}
+
+#mypc-find-id-box .mypc-input-click{
+	font-size: 0.7em;
+	top: 14px;
+	left: 120px;
+	color: black;
+}
+
+#mypc-find-id-box +button{
+	margin-top: 10px;
+	width: 300px;
+	background-color: white;
+	border: 1px solid #ddd;
+}
+
+/** 비밀번호 찾기 */
+#mypc-find-pw-box{
+	position: relative;
+}
+
+#mypc-find-pw-box input {
+	text-indent: 1.5em;
+	font-size:13px;
+
+	border-radius: 5px;
+	border: 1px solid #ccc;
+	width: 300px;
+	height: 50px;
+	display: block;
+	background-color: #fff;
+	margin:20px auto 0;
+}
+
+#mypc-find-pw-box span{
+	position: absolute;
+	top: 37px;
+	left: 129px;
+	font-size: 0.8em;
+	color: #777;
+	display: block;
+	padding: 0 3px;
+	background-color: white;
+	transition: all 0.2s;
+}
+
+#mypc-find-pw-box .mypc-input-click{
+	font-size: 0.7em;
+	top: 14px;
+	left: 120px;
+	color: black;
+}
+
+#mypc-find-pw-box +button{
+	margin-top: 10px;
+	width: 300px;
+	background-color: white;
+	border: 1px solid #ddd;
+}
+
+/** 비밀번호 찾기 박스 */
+#mypc-find-pw-box01{
+	position: relative;
+}
+
+#mypc-find-pw-box01 input {
+	text-indent: 1.5em;
+	font-size:13px;
+
+	border-radius: 5px;
+	border: 1px solid #ccc;
+	width: 300px;
+	height: 50px;
+	display: block;
+	background-color: #fff;
+	margin:20px auto 0;
+}
+
+#mypc-find-pw-box01 span{
+	position: absolute;
+	top: 37px;
+	left: 129px;
+	font-size: 0.8em;
+	color: #777;
+	display: block;
+	padding: 0 3px;
+	background-color: white;
+	transition: all 0.2s;
+}
+
+#mypc-find-pw-box01 .mypc-input-click{
+	font-size: 0.7em;
+	top: 14px;
+	left: 120px;
+	color: black;
+}
+
+#mypc-find-pw-box01 +button{
+	margin-top: 10px;
+	width: 300px;
+	background-color: white;
+	border: 1px solid #ddd;
+}
+
+/** 로그인 뒤로가기 버튼 */
+.mypc-back-btn {
+	font-size: 11px;
+	margin-top:14px;
+	margin-left:250px;
+}
+
+.mypc-back-btn a{
+	color: #000;
+}

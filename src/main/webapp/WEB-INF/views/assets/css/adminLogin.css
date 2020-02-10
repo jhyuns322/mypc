@@ -1,0 +1,90 @@
+@charset "UTF-8";
+
+/* 로그인박스 */
+.mypc-login-box {
+	width: 500px;
+	height: 400px;
+	margin: 120px auto;
+	border: 1px solid #bbb;
+	text-align: center;
+	overflow: hidden;
+	position: relative;
+}
+
+/* 로그인박스 로고 */
+.mypc-login-box .mypc-login-box-logo {
+	margin-top: 40px;
+	font-family: 'Audiowide', 'Helvetica' cursive;
+	font-weight: black;
+	font-size: 40px;
+}
+
+.mypc-login-box .mypc-slide-box .mypc-login-box-logo {
+	font-size: 20px;
+}
+
+/* 로그인 슬라이드 박스 */
+.mypc-slide-box {
+	width: 498px;
+	height: 210px;
+	position: absolute;
+	transition: all 0.3s;
+}
+
+.mypc-slide-box:nth-child(2) {
+	left: 0;
+}
+
+.mypc-slide-box:nth-child(3) {
+	left: 498px;
+}
+
+.mypc-slide-box:nth-child(4) {
+	left: 498px;
+}
+
+.mypc-slide-box:nth-child(5) {
+	left: 498px;
+}
+
+/* 로그인 인풋박스 */
+.mypc-input-box {
+	position: relative;
+}
+
+.mypc-input-box input {
+	text-indent: 1.5em;
+	font-size: 13px;
+	border-radius: 5px;
+	border: 1px solid #ccc;
+	width: 300px;
+	height: 50px;
+	display: block;
+	background-color: #fff;
+	margin:20px auto 0;
+}
+
+.mypc-input-box span {
+	position: absolute;
+	top: 18px;
+	left: 117px;
+	font-size: 0.8em;
+	color: #777;
+	display: block;
+	padding: 0 3px;
+	background-color: white;
+	transition: all 0.2s;
+}
+
+.mypc-input-box .mypc-input-click {
+	font-size: 0.7em;
+	top: -4px;
+	left: 107px;
+	color: black;
+}
+
+/* 로그인 버튼 */
+#mypc-login-button {
+	margin-top: 10px;
+	width: 300px;
+}

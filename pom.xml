@@ -101,6 +101,7 @@
 			<scope>runtime</scope>
 		</dependency>
 
+
 		<!-- @Inject -->
 		<dependency>
 			<groupId>javax.inject</groupId>
@@ -110,7 +111,7 @@
 
 		<!-- ========== Spring을 구성하기 위한 기본 라이브러리들 추가 ========== -->
 		<!-- 1) Spring Context Support -->
-		<!-- https://mvnrepository.com/artifact/org.spring50-spring-context-support -->
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-context-support -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context-support</artifactId>
@@ -260,7 +261,7 @@
 
 		<!-- ========== JDBC,MyBatis Spring 지원 기능 ========== -->
 		<!-- Spring JDBC -->
-		<!-- https://mvnrepository.com/artifact/org.spring50-spring-jdbc -->
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-jdbc -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-jdbc</artifactId>

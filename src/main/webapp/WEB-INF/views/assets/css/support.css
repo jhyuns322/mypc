@@ -1,0 +1,18 @@
+@charset "UTF-8";
+
+.mypc-content-box {
+	margin : 30px auto;
+	width : 90%;	
+}
+
+.mypc-question-box {
+	min-height : 430px;
+}
+
+.mypc-mapForm {
+	margin-bottom: 60px;
+}
+
+.mypc-map {
+	height: 400px;
+}

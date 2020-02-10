@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="OrderMapper">
+
+	<resultMap id="orderMap" type="com.son.mypc.model.Order">
+		<result property="orderno" column="orderno" />
+		<result property="ordered_num" column="ordered_num" />
+		<result property="ordered_date" column="ordered_date" />
+		<result property="selected_count" column="selected_count" />
+		<result property="category" column="category" />
+		<result property="item_name" column="item_name" />
+		<result property="manufac" column="manufac" />
+		<result property="spec" column="spec" />
+		<result property="price" column="price" />
+		<result property="reg_date" column="reg_date" />
+		<result property="rel_date" column="rel_date" />
+		<result property="item_img1" column="item_img1" />
+		<result property="item_img2" column="item_img2" />
+		<result property="item_imgthumb" column="item_imgthumb" />
+		<result property="membno" column="membno" />
+		<result property="name" column="name" />
+		<result property="addr1" column="addr1" />
+		<result property="addr2" column="addr2" />
+		<result property="tel" column="tel" />
+	</resultMap>
+
+	<!-- Membno를 이용한 Order 단일 조회 -->
+	<select id="selectOrderList"
+		parameterType="com.son.mypc.model.Order" resultMap="orderMap">
+		SELECT
+		orderno, ordered_num, ordered_date, selected_count, category, item_name,
+		manufac, spec, price, reg_date, rel_date, item_img1, item_img2,
+		item_imgthumb, membno,name,addr1,addr2,tel
+		FROM mypc.order
+		WHERE membno=#{membno}
+	</select>
+
+	<!-- 날짜 필터링 [월][Membno, Ordered_date] -->
+	<select id="selectOrderListByMonth"
+		parameterType="com.son.mypc.model.Order" resultMap="orderMap">
+		SELECT
+		*
+		FROM mypc.order
+		WHERE membno=#{membno}
+		AND ordered_date LIKE concat('%', #{ordered_date},'%')
+	</select>
+	
+	<!-- 날짜 필터링 [상세검색][Membno, Ordered_date, Ordered_date2] -->
+	<select id="selectOrderListByDate"
+		parameterType="com.son.mypc.model.Order" resultMap="orderMap">
+		SELECT *
+		FROM mypc.order
+		WHERE membno=#{membno}
+		AND ordered_date &gt;= #{ordered_date} 
+		AND ordered_date &lt;= #{ordered_date2}
+	</select>
+	
+	<!-- Order 추가 [Orderno를 제외한 나머지] -->
+	<insert id="insertOrder"
+		parameterType="com.son.mypc.model.Order"
+		useGeneratedKeys="true" keyProperty="orderno">
+		INSERT INTO mypc.order (ordered_num, ordered_date, selected_count, category, item_name,
+		manufac, spec, price, reg_date, rel_date, item_img1, item_img2,
+		item_imgthumb, membno,name,addr1,addr2,tel)
+		VALUES
+		(#{ordered_num}, #{ordered_date}, #{selected_count}, #{category}, #{item_name},
+		#{manufac}, #{spec}, #{price}, #{reg_date}, #{rel_date}, #{item_img1}, #{item_img2},
+		#{item_imgthumb}, #{membno},#{name},#{addr1},#{addr2},#{tel});
+	</insert>
+
+	<!-- Order 삭제 [Orderno, Membno] -->
+	<update id="deleteOrderByUpdate"
+		parameterType="com.son.mypc.model.Order">
+		UPDATE mypc.order SET
+		membno =#{membno}
+		WHERE
+		orderno=#{orderno}
+	</update>
+	
+	<!-- 회원탈퇴에 따른 Order 삭제 [Membno] -->
+	<update id="unsetOrder"
+		parameterType="com.son.mypc.model.Order">
+		UPDATE mypc.order SET
+		membno =1
+		WHERE
+		membno =#{membno}
+	</update>
+	
+	<!-- 카테고리별 판매량 통계 데이터 목록 조회 -->
+	<select id="selectStats1" parameterType="com.son.mypc.model.Order" resultMap="orderMap">
+		SELECT category, sum(price) as price FROM mypc.order GROUP BY category;
+	</select>
+	
+	<!-- 기간별 상품 판매 금액 통계 데이터 목록 조회 [StartDate, EndDate] -->
+	<select id="selectStats2" parameterType="com.son.mypc.model.Order" resultMap="orderMap">
+		SELECT DATE_FORMAT(ordered_date, "%Y-%m-%d") as ordered_date, sum(price) as price FROM mypc.order 
+		<if test="endDate != null and endDate !='' and startDate != null and startDate !=''" >
+			<where>
+				DATE_FORMAT(ordered_date, "%Y-%m-%d") &gt;= "${startDate}"
+				AND DATE_FORMAT(ordered_date, "%Y-%m-%d") &lt;= "${endDate}"
+			</where>
+		</if>
+		GROUP BY DATE_FORMAT(ordered_date, "%Y-%m-%d")
+
+		ORDER BY DATE_FORMAT(ordered_date, "%Y-%m-%d")
+		
+		
+	</select>
+</mapper>

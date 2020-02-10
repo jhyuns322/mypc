@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="CartMapper">
+	
+	<resultMap  id="cartMap"
+		type="com.son.mypc.model.Cart">
+		<result property="cartno" column="cartno"/>
+		<result property="selected_count" column="selected_count"/>
+		<result property="item_name" column="item_name"/>
+		<result property="manufac" column="manufac"/>
+		<result property="spec" column="spec"/>
+		<result property="price" column="price"/>
+		<result property="reg_date" column="reg_date"/>
+		<result property="rel_date" column="rel_date"/>
+		<result property="item_img1" column="item_img1"/>
+		<result property="item_img2" column="item_img2"/>
+		<result property="item_imgthumb" column="item_imgthumb"/>
+		<result property="membno" column="membno"/>
+		<result property="itemno" column="itemno"/>
+	</resultMap>
+	
+	<!-- Membno를 이용한 Cart 단일 조회 -->
+	<select id="selectCartItem"
+	parameterType="com.son.mypc.model.Cart"
+	resultMap="cartMap">
+		SELECT * FROM cart 
+		WHERE membno=#{membno}
+	</select>
+	
+	<!-- Cartno를 이용한 Cart 단일 조회 -->
+	<select id="selectCartNoItem"
+	parameterType="com.son.mypc.model.Cart"
+	resultMap="cartMap">
+		SELECT * FROM cart
+		WHERE cartno=#{cartno}
+	</select>
+	
+	<!-- 파라미터가 없는 모든 Cart 조회 -->
+	<select id="selectCartList"
+	parameterType="com.son.mypc.model.Cart"
+	resultMap="cartMap">
+		SELECT *
+		FROM cart
+	</select>
+	
+	<!-- Cartno를 이용한 selected_count 업데이트 -->
+	<update id="editQuantity"
+		parameterType="com.son.mypc.model.Cart">
+		UPDATE cart SET
+		selected_count=#{selected_count}
+		WHERE 
+		cartno=#{cartno}
+	</update>
+	
+	<!-- Cartno를 이용한 Cart 삭제 -->
+	<delete id="deleteCart"
+		parameterType="com.son.mypc.model.Cart">
+		DELETE FROM cart 
+		WHERE cartno=#{cartno};
+	</delete>
+	
+	<!-- Membno를 이용한 Cart 삭제 -->
+	<delete id="unsetCart"
+		parameterType="com.son.mypc.model.Cart">
+		DELETE FROM cart 
+		WHERE membno=#{membno}
+	</delete>
+	
+	<!-- Itemno를 이용한 Cart 삭제 -->
+	<delete id="deleteCartForItem"
+		parameterType="com.son.mypc.model.Item">
+		DELETE FROM cart 
+		WHERE itemno=#{itemno};
+	</delete>
+	
+	<!-- 쿠폰데이터 저장을 위한 기능 정의 -->
+	<insert id="insertCartItem"
+		parameterType="com.son.mypc.model.Item" useGeneratedKeys="true"
+		keyProperty="cartno">
+		INSERT INTO 
+		cart (selected_count, item_name, manufac, spec, price, reg_date, rel_date,
+		item_img1, item_img2, item_imgthumb, membno, itemno) 
+		VALUES 
+		(#{selected_count}, #{item_name}, #{manufac}, #{spec}, #{price}, #{reg_date}, #{rel_date}, 
+		#{item_img1}, #{item_img2}, #{item_imgthumb}, #{membno}, #{itemno});
+	</insert>
+</mapper>

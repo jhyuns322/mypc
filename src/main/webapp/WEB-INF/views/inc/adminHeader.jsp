@@ -14,7 +14,6 @@
 					<span class="sr-only">메뉴열기</span> <span class="icon-bar"></span>
 					<span class="icon-bar"></span> <span class="icon-bar"></span>
 				</button>
-				<!--// 반응형 메뉴 버튼 -->
 
 				<!-- 로고 이미지 사이즈 (360x150) -->
 				<c:choose>
@@ -30,18 +29,13 @@
 					</c:otherwise>
 				</c:choose>
 			</div>
-			<!--// 로고 영역 -->
 
 			<!-- 메뉴 영역 -->
 			<div class="navbar-collapse collapse">
 				<!-- 메뉴항목 -->
-				<ul id="common-nav-ul01" class="nav navbar-nav common-nav-ul01">
-					<li><a data-submenu="sub01" href="aboutUs">About Us</a></li>
-				</ul>
-				<!--// 메뉴항목 -->
 				<c:choose>
 					<c:when test="${sessionAdminId == 'mypc'}">
-						<ul class="nav navbar-nav common-nav-ul02">
+						<ul class="nav navbar-nav common-nav-ul01">
 							<li style="font-size:12px"><a id="logout" href="#">Logout</a></li>
 						</ul>
 					</c:when>
@@ -56,8 +50,6 @@
 			<div id="common-submenu" class="navbar-collapse collapse">
 				<ul id="common-submenu-ul01" class="nav navbar-nav common-submenu-ul01 common-hide"></ul>
 			</div>
-			<!--// 서브메뉴 영역 -->
 		</div>
 	</nav>
 </header>
-<!--// 헤드 영역 -->

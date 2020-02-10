@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="PayMapper">
+
+	<!-- Beans 클래스의 객체이름(id)과 클래스이름(type) 명시 -->
+	<resultMap  id="payMap"
+		type="com.son.mypc.model.Pay">
+		<!-- Beans의 멤버변수(property)이름과 대상 테이블의 컬럼(column)을 연결한다. -->		
+		<result property="cartno" column="cartno"/>
+		<result property="selected_count" column="selected_count"/>
+		<result property="item_name" column="item_name"/>
+		<result property="manufac" column="manufac"/>
+		<result property="spec" column="spec"/>
+		<result property="price" column="price"/>
+		<result property="reg_date" column="reg_date"/>
+		<result property="rel_date" column="rel_date"/>
+		<result property="item_img1" column="item_img1"/>
+		<result property="item_img2" column="item_img2"/>
+		<result property="item_imgthumb" column="item_imgthumb"/>
+		<result property="membno" column="membno"/>
+		<result property="itemno" column="itemno"/>
+	</resultMap>
+	
+	<!-- Cartno를 이용한 Cart 단일 조회 -->
+	<select id="selectCartItem"
+	parameterType="com.son.mypc.model.Pay"
+	resultMap="payMap">
+		SELECT * FROM cart
+		WHERE cartno=#{cartno}
+	</select>
+</mapper>

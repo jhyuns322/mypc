@@ -1,0 +1,350 @@
+@charset "UTF-8";
+
+/** 데이트 박스 **/
+.mypc-total-date-box{
+	padding: 10px;
+}
+
+/** 월별 필터링 **/
+.pagination{
+	margin-top: 27px;
+}
+
+/** 전체검색 **/
+.mypc-all-select-btn{
+	padding: 6px 20px;
+	border-radius: 4px;
+	border: 1px solid #ccc;
+	background-color: white;
+	margin-top: 27px;
+	margin-left:30px;
+	color: #337ab7;
+}
+
+/** 세부 필터링 **/
+.mypc-detail-date{
+	width: 440px;
+	margin-top:27px;
+}
+
+.mypc-ordered-date{
+	border-radius: 5px;
+	border: 1.2px solid #ccc;
+	font-size: 0.9em;
+	padding: 2px 5px;
+	text-align: center;
+}
+
+.mypc-select-btn{
+	padding: 6px 20px;
+	border-radius: 4px;
+	border: 1px solid #ccc;
+	background-color: white;
+	color: #337ab7;
+}
+
+/** 주문정보 헤드 **/
+.mypc-top-table-head{
+	border-top:1.5px solid #777;
+}
+
+.mypc-top-table-head th{
+	padding:26px 0 10px 10px;
+}
+
+.mypc-table-sort1{
+	text-align: center;
+}
+
+/** 구매날짜 박스 **/
+.mypc-date-box{
+	border-top: 1px solid #777;
+}
+
+/** 구매 날짜(월별) **/
+.mypc-sell-date{
+	margin: -17px auto 0;
+	width: 100px;
+	background-color: #333;
+	color: white;
+	text-align:center;
+	padding: 8px;
+	border-radius: 18px
+}
+
+/** 주문정보 바디 **/
+.mypc-top-table {
+	border-bottom:1px solid #ccc; 
+	margin-top:7px;
+}
+
+.mypc-top-table td{
+	padding-left:10px;
+}
+
+/** 썸네일 **/
+.mypc-top-img-box {
+	width:100px;
+	height: 100px;
+	float:left;
+	margin-top:15px;
+}
+
+.mypc-top-img-box img {
+	width: 100%;
+	height: 100%;
+}
+
+/** 주문에 관한 첫번째 상품명 **/
+.mypc-top-name-box{
+	text-indent:10px;
+	height:140px;
+	font-weight: bold;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.mypc-top-name-box > span{
+	display: block;
+	min-height: 14px;
+}
+
+.mypc-top-name-box > span:first-child{
+	margin-top:46px;
+	font-weight: bold;
+	white-space: initial;
+}
+
+.mypc-top-name-box span{
+	font-size:0.9em;
+	font-weight: normal;
+}
+
+.mypc-top-name-box span span{
+	color: red;
+	font-weight:bold;
+}
+
+
+/** 버튼 모음 **/
+.mypc-button-set button{
+	margin: 1px 0;
+}
+
+.mypc-button-set .mypc-support-btn a{
+	color:black;
+	text-decoration: none;
+}
+
+
+/** 상세보기 모달 **/
+.mypc-order-modal {
+	width:100%;
+	height: 100%;
+	background-color: #333;
+	opacity: 0.5;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index:10;
+	
+	display:none;
+}
+
+.mypc-fixed-box{
+	position: fixed;
+	top:0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index:11;
+	
+	display:none;
+}
+
+.mypc-hidden-box{
+	height:70%;
+	position: relative;
+	top:15%;
+}
+
+.mypc-white-box{
+	height: 70%;
+	background-color: #f8f8f8;
+	position: relative;
+	top: 15%;
+	opacity: 1;
+	border-radius: 4px;
+}
+
+/** 스크롤 박스 **/
+.mypc-scroll{
+	width: 90%;
+	height: 90%;
+	position: absolute;
+	top:5%;
+	left:5%;
+	padding: 20px;
+	overflow: auto;
+}
+
+.mypc-modal-order-table{
+	margin: 10px 0 30px;
+}
+
+/** 모달 상품 헤드 **/
+.mypc-modal-order-head {
+	border-top:1.5px solid #777;
+	border-bottom:1.5px solid #777;
+}
+
+.mypc-modal-order-head th{
+	padding:10px 0;;
+}
+
+.mypc-modal-order-head th:first-child{
+	text-align: center;
+}
+
+.mypc-modal-order-head th:last-child, .mypc-modal-order-head th:nth-child(2){
+	text-align: right;
+}
+
+/** 모달 상품 바디 **/
+.mypc-modal-order-body td{
+	padding:10px 0;
+	border-bottom:1px solid #ccc;
+}
+
+.mypc-modal-order-body td:last-child, .mypc-modal-order-body td:nth-child(2){
+	text-align: right;
+}
+
+.mypc-modal-order-table tbody tr:last-child td{
+	border-bottom:1px solid #777;
+}
+
+/** 모달 썸네일 **/
+.mypc-modal-order-img {
+	width:100px;
+	height: 100px;
+	float: left;
+	margin-right: 15px;
+}
+
+.mypc-modal-order-img img{
+	width:100%;
+	height: 100%;
+}
+
+/** 모달 상품명, 회사명, 스펙 **/
+.mypc-modal-order-info div:nth-child(2){
+	font-weight: bold;
+	margin-top:23px;
+}
+
+.mypc-modal-order-info div:nth-child(3), .mypc-modal-order-info div:nth-child(4){
+	font-size: 0.9em;
+}
+
+/** 모달 각 주문금액 **/
+.mypc-modal-order-price div span{
+	font-weight: bold;
+}
+
+.mypc-modal-order-price div:nth-child(3) span:first-child{
+	color:red;
+	font-size: 1.1em;
+}
+
+/** 모달 수령인 **/
+.mypc-modal-recipient {
+	margin:20px 0;
+	border-top:1.5px solid #777;
+	border-bottom:1.5px solid #777;
+}
+
+.mypc-modal-recipient thead th{
+	padding:15px 0;
+	border-bottom:1px solid #ccc;
+	font-size: 1.3em;
+	padding-left:32px;
+}
+
+.mypc-modal-recipient tbody td{
+	padding:15px 0;
+	border-bottom:1px solid #ccc;
+}
+
+.mypc-modal-recipient tbody tr:last-child td{
+	border-bottom:none;
+}
+
+.mypc-modal-recipient tbody td:first-child{
+	background-color: #eee;
+	text-align:center;
+	font-weight: bold;
+}
+
+.mypc-modal-recipient tbody tr td:last-child{
+	font-size: 0.9em;
+	text-align: right;
+}
+
+/** 모달 결제정보**/
+.mypc-modal-pay{
+	margin:20px 0;
+	border-top:1.5px solid #777;
+	border-bottom:1.5px solid #777;
+}
+
+.mypc-modal-pay thead th{
+	padding:15px 0;
+	border-bottom:1px solid #ccc;
+	font-size: 1.3em;
+	padding-left:32px;
+}
+
+.mypc-modal-pay tbody td{
+	padding:15px 0;
+	border-bottom:1px solid #ccc;
+}
+
+.mypc-modal-pay tbody td:first-child{
+	background-color: #eee;
+	text-align:center;
+	font-weight: bold;
+}
+
+.mypc-modal-pay tbody tr td:last-child{
+	font-size: 1.2em;
+	text-align: right;
+}
+
+.mypc-modal-pay tbody tr:last-child td:last-child{
+	font-size: 1.4em;
+}
+
+.mypc-modal-pay tbody tr:last-child td{
+	color:red;
+	border-top:1.5px solid #777;
+	border-bottom:none;
+}
+
+
+
+/** 버튼 **/
+.content .mypc-btn{
+	border:1.2px solid #ccc;
+	color: black;
+	text-decoration: none;
+
+	background-color: #fff;
+}
+
+.content .mypc-btn:hover{
+	color: white;
+	background: gray;
+	text-decoration: none;
+}

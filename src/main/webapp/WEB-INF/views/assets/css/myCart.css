@@ -1,0 +1,284 @@
+@charset "UTF-8";
+
+/** 구매 절차 **/
+.mypc-cart-step{
+	padding-right: 4%;
+}
+.mypc-cart-step > div{
+	width: 335px;
+	text-shadow: 1px 1px 1px #ddd;
+	text-align: right;
+}
+
+.mypc-cart-step .mypc-small-font{
+	font-size: 1.0em;
+	position: relative;
+	top: -3px;
+}
+
+.mypc-cart-step .mypc-big-font{
+	font-size: 1.6em;
+	font-weight: bold;
+}
+
+
+/** 경고문 **/
+.mypc-cautions{
+	width: 92%;
+	margin-left: 4%;
+	padding: 10px 0 10px 10px;
+	border: 1px solid #ddd;
+	background-color: rgb(235,235,235);
+	font-size: 0.8em;
+}
+
+.mypc-cautions ul{
+	padding-left: 20px;
+	margin: 0;
+}
+
+.mypc-cautions ul{
+	list-style: disc;
+}
+
+
+/** 상품에 대한 정보 **/
+.mypc-product-desc{
+	width: 92%;
+	margin-top: 10px;
+	margin-left: 4%;
+	padding: 5px 0;
+	border-top: 1.2px solid #ddd;
+	border-bottom: 1.2px solid #ddd;
+
+	font-size: 0.9em;
+	text-shadow: 1px 1px 1px #ddd;
+}
+
+.mypc-product-desc input{
+	margin-top: 2px;
+}
+
+.mypc-product-desc span{
+	padding: 0;
+	text-align: right;
+}
+
+
+/** 상품 정보 **/
+.mypc-product-info {
+	width: 92%;
+	margin-left: 4%;
+}
+
+
+.mypc-product {
+	margin: 0;
+	padding: 30px 0;
+	border-bottom: 1px solid #ddd;
+	position: relative;
+}
+
+.mypc-product-info .mypc-product input {
+	margin-top: 26px;
+}
+
+.mypc-product div{
+	padding: 0;
+}
+
+/** 상품 썸네일 **/
+.mypc-img-box{
+	width: 80px;
+	height: 80px;
+	box-shadow: 1px 1px 1px #aaa;
+	margin-right: 10px;
+}
+
+.mypc-img-box img{
+	width: 100%;
+	height: 100%;
+}
+
+
+/** 상품 정보 [상품명, 제조사, 스펙] **/
+.mypc-product-info .mypc-product-information div:nth-child(2){
+	font-size: 0.9em;
+	font-weight: bold;
+}
+
+.mypc-product-info .mypc-product-information div:nth-child(1n+3){
+	font-size: 0.8em;
+	vertical-align: bottom;
+}
+
+/** 상품 수량 **/
+.mypc-product-info .mypc-quantity {
+	height: 60px;
+}
+
+.mypc-product-info .mypc-quantity-input{
+	width: 45px;
+	text-align:center;
+	display: block;
+	font-size: 1em;
+	float:right;
+	margin-top: -10px;
+	border-radius: 4px;
+	border: 1.5px solid #ccc;
+}
+
+.mypc-product-info .mypc-quantity-btn{
+	padding: 2px 9px 0px;
+	font-size: 0.9em;
+	position: absolute;
+	bottom: -17px;
+	right: 0;
+}
+
+.mypc-product-info input[disabled]{
+	border: none;
+	background-color: white;
+}
+
+/** 상품 가격 **/
+
+.mypc-product-info .mypc-price-info{
+	height: 80px;
+	font-size: 0.9em;
+	margin-top:29px;
+	text-align: right;
+}
+
+
+.mypc-product-info .mypc-product-price div{
+	width: 75%;
+	margin-top: 29px;
+	text-align: right;
+	font-size: 0.9em;
+	float: right;
+}
+
+.mypc-product-info .mypc-product-price a{
+	margin-top: 28px;
+	margin-left: 2px;
+	border: 1px solid #ccc;
+	box-shadow: 1px 1px 1px #eee;
+	padding: 0 3px 1px 0;
+	border: 1px solid #aaa;
+	border-radius: 3px;
+	background-color: #ddd;
+	font-size: 0.8em;
+	text-indent: 3px;
+}
+
+
+.mypc-product-info .mypc-product-price button{
+	padding: 2px 6px;
+
+	font-size: 0.7em;
+}
+
+.mypc-product-info .mypc-product-price .xs_btn{
+	float: right;
+	margin-top: 10px;
+	margin-left: 5px;
+}
+
+#mypc-total-price{
+	width: 92%;
+
+	margin-left: 4%;
+	margin-top: 10px; 
+	margin-bottom: 100px;
+}
+
+#mypc-total-price .mypc-white-box{
+	width: 400px;
+	height: 170px;
+	padding: 20px;
+	background-color: white;
+	border: 1px solid #ddd;
+	font-size:1.2em;	
+}
+
+#mypc-total-price .mypc-hr{
+	width: 100%;
+	height: 20px;
+	border-bottom: 1px solid #aaa;
+	margin-bottom: 20px;
+}
+
+#mypc-total-price .mypc-white-box div:last-child{
+	font-weight: bold;
+}
+
+#mypc-total-price .mypc-select-delete{
+	background-color: #ddd;
+	border: 1px solid #ccc;
+	padding: 3px 7px 2px 6px;
+	border-radius: 4px;
+
+	color: black;
+	font-size: 0.8em;
+}
+
+#mypc-total-price .mypc-empty-box{
+	height: 22px;
+}
+
+#mypc-total-price > hr{
+	margin-top: 158px;
+	margin-bottom: 15px;
+	border-top: 1px solid #ddd;
+}
+
+#mypc-total-price .mypc-select-order{
+	background-color: #ddd;
+	border: 1px solid #ccc;
+	padding: 13px 17px 12px 16px;
+	border-radius: 4px;
+
+	float: right;
+
+	color: black;
+	font-size: 1.2em;
+}
+
+/** 버튼 **/ 
+.mypc-delete-btn{
+	padding: 2px 6px;
+	border-radius: 6px;
+}
+
+.mypc-select-order-btn{
+	padding: 10px 15px;
+	border-radius: 6px;
+} 
+
+/** 공통 **/
+.content a{
+	color: black;
+	text-decoration: none;
+}
+
+.content .mypc-btn{
+	border:1.2px solid #ccc;
+	color: black;
+	text-decoration: none;
+
+	background-color: #fff;
+}
+
+.content .mypc-btn:hover{
+	color: white;
+	background: gray;
+	text-decoration: none;
+}
+
+.mypc-empty-cart{
+	text-align: center;
+	min-height: 150px;
+	font-size: 0.9em;
+	line-height: 150px;
+}

@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+.mypc-contentbox {
+	margin: 50px 0;
+	min-height: 400px;
+		
+}
+
+.mypc-img-resizing img {
+	max-width: 1140px !important;
+	height: auto !important;
+}
+
+.mypc-comment-margin01 {
+	margin-top : 20px;
+	margin-bottom : 20px;
+}
+
+.mypc-comment-margin02 {
+	margin-bottom : 10px;
+}
+
+.mypc-comment-padding {
+	padding-right: 20px;
+}
+
+.mypc-font-grey {
+	color: #aaa;
+}

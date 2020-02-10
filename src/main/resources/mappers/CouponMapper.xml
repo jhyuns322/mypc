@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="CouponMapper">
+
+	<resultMap id="couponMap"
+		type="com.son.mypc.model.Coupon">
+		<result property="coupno" column="coupno" />
+		<result property="coupon_name" column="coupon_name" />
+		<result property="coupon_off" column="coupon_off" />
+		<result property="issue_date" column="issue_date" />
+		<result property="expired_date" column="expired_date" />
+		<result property="enabled" column="enabled" />
+		<result property="membno" column="membno" />
+	</resultMap>
+
+	<!-- Membno를 이용한 Coupon 조회 -->
+	<select id="selectCouponItem"
+		parameterType="com.son.mypc.model.Coupon" resultMap="couponMap">
+		SELECT * FROM coupon
+		WHERE membno=#{membno}
+	</select>
+
+	<!-- Membno를 이용한 미사용 Coupon 조회 -->
+	<select id="selectNotUseCouponItem"
+		parameterType="com.son.mypc.model.Coupon" resultMap="couponMap">
+		SELECT * FROM coupon
+		WHERE membno=#{membno}
+		AND enabled=0
+	</select>
+
+	<!-- Membno를 이용한 사용 Coupon 단일 조회 -->
+	<select id="selectUseCouponItem"
+		parameterType="com.son.mypc.model.Coupon" resultMap="couponMap">
+		SELECT * FROM coupon
+		WHERE membno=#{membno}
+		AND enabled > 0
+	</select>
+
+	<!-- 데이터 저장을 위한 기능 정의 -->
+	<insert id="insertCouponItem"
+		parameterType="com.son.mypc.model.Coupon" useGeneratedKeys="true"
+		keyProperty="coupno">
+		INSERT INTO 
+		coupon (coupon_name, coupon_off, issue_date, expired_date, enabled, membno) 
+		VALUES
+		(#{coupon_name}, #{coupon_off}, #{issue_date}, #{expired_date}, #{enabled}, #{membno});
+	</insert>
+
+	<!-- Coupno를 이용한 쿠폰 사용 업데이트 -->
+	<update id="useCoupon"
+		parameterType="com.son.mypc.model.Coupon">
+		UPDATE coupon SET
+		enabled=#{enabled}
+		WHERE
+		coupno=#{coupno}
+	</update>
+
+	<!-- Coupno를 이용한 쿠폰 만료 업데이트 -->
+	<update id="expireCoupon"
+		parameterType="com.son.mypc.model.Coupon">
+		UPDATE coupon SET
+		enabled=1
+		WHERE
+		coupno=#{coupno}
+	</update>
+
+	<!-- Coupno를 이용한 쿠폰 삭제 업데이트 -->
+	<update id="delCoupon"
+		parameterType="com.son.mypc.model.Coupon">
+		UPDATE coupon SET
+		membno=1
+		WHERE
+		coupno=#{coupno}
+	</update>
+
+	<!-- Membno를 이용한 쿠폰 삭제 업데이트 -->
+	<update id="unsetCoupon"
+		parameterType="com.son.mypc.model.Coupon">
+		UPDATE coupon SET
+		membno=1
+		WHERE
+		membno=#{membno}
+	</update>
+	
+	<!-- 파라미터가 없는 모든 Coupon 조회 -->
+	<select id="selectAllList"
+		parameterType="com.son.mypc.model.Coupon" resultMap="couponMap">
+		SELECT * FROM coupon
+	</select>
+</mapper>

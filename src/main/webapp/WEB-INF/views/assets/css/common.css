@@ -2,6 +2,7 @@
 
 /* 태블릿, 데스크탑 (width 768px 이상 css 적용) */
 @media ( min-width : 768px) {
+	/* 주석형식 변경예정 */
 	/* 공통영역 */
 	body {
 		width: 100%;
@@ -10,6 +11,7 @@
 	.common-hide {
 		display: none;
 	}
+	/* top.jsp 영역 */
 	.common-nav {
 		border-bottom: none;
 	}
@@ -75,11 +77,13 @@
 		width: 25%;
 	}
 
+	/* section 영역 */
 	.content {
 		min-height: 744px;
 		margin-bottom: 40px;
 	}
 
+	/* bottom.jsp 영역 */
 	.common-container {
 		bottom: 0;
 		background-color: rgb(26, 26, 26);
@@ -116,6 +120,7 @@
 	}
 }
 
+/** 사이드바 **/
 .mypc-sideBar {
 	width: 200px;
 	height: 453px;

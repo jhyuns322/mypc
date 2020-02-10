@@ -1,0 +1,207 @@
+@charset "UTF-8";
+
+.container-fluid:first-child {
+	background-color: #000;
+}
+
+.mypc-img {
+	height: 350px;
+	width: 1200px;
+	margin: auto;
+}
+
+.mypc-option > .row{
+	padding-bottom: 10px;
+}
+
+/* 상품 옵션 */
+.mypc-optionBox {
+	border: 1px solid #e6e6e6;
+	height: 150px;
+	margin-left: 30px;
+	margin-bottom: 20px;
+	overflow: auto;
+	text-align: left;
+}
+
+.mypc-ul01 li {
+	color: black;
+	padding-left: 20px;
+}
+
+.mypc-ul01 li.col-md-2:first-child {
+	margin-left: 20px;
+}
+
+.mypc-ul01 li.col-md-2 {
+	margin-right: 40px;
+}
+
+.mypc-ul01 li.col-md-2:last-child {
+	margin-right: 0;
+}
+
+/* 상품정렬 및 검색 */
+.mypc-ul02 .mypc-input {
+	width: 100px;
+	height: 25px;
+}
+
+.mypc-ul02 {
+	border: 1px solid #e6e6e6;
+	height: 50px;
+	color: black;
+}
+
+.mypc-ul02>li {
+	padding-top: 15px;
+	text-align: center;
+}
+
+.mypc-ul02 a {
+	color: black;
+}
+
+.mypc-div02 .itemList-input {
+	height: 25px;
+	width: 100px;
+}
+
+/* 상품목록 */
+.mypc-ul03 {
+	min-height: 700px;
+	padding-top: 10px;
+}
+
+.mypc-ul03 div {
+	padding-top: 100px;
+	text-align: center;
+}
+
+.mypc-ul03>li {
+	height: 150px;
+	padding-bottom: 10px;
+}
+
+.mypc-ul03>li:nth-child(4n-1) {
+	padding-top: 30px;
+}
+
+.mypc-ul03>li:nth-child(4n) {
+	padding-top: 20px;
+	padding-left: 50px;
+}
+
+.mypc-ul03 a {
+	color: black;
+}
+
+.mypc-ul03 a:hover {
+	color: black;
+}
+
+.mypc-ul03 img {
+	width: 150px;
+	height: 150px;
+}
+
+.mypc-ul03 img:hover {
+	transform: scale(1.1, 1.1);
+}
+
+.mypc-price {
+	padding-top: 20px;
+	text-align: center;
+}
+
+.mypc-buy button {
+	width: 81px;
+	height: 65px;
+	display: inline-block;
+	background-color: #696969;
+	font-size: 15px;
+	border-style: none;
+}
+
+.mypc-buy button:first-child {
+	margin-right: 10px;
+	background-color: white;
+	color: #696969;
+	border: 1px solid #c6c6c6;
+}
+
+.mypc-buy button:last-child:hover {
+	background-color: #333;
+}
+
+.box {
+	box-shadow: 1px 1px 1px 1px #b0b0b0;
+	margin: 3vw;
+	padding-left: 2vw;
+}
+
+.box>ul {
+	position: relative;
+	width: 300px;
+	height: 200px;
+	background: white;
+	margin: 15px;
+	overflow: hidden;
+	float: left;
+	box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.15);
+}
+
+.box>ul img {
+	width: 300px;
+	height: 200px;
+	position: absolute;
+	top: 0px;
+	right: -335px;
+	transition: all 0.5s ease;
+}
+
+.box>ul:hover img {
+	cursor: pointer;
+	top: -5px;
+	right: -325px;
+	-moz-transform: scale(0.9, 0.9);
+	-ms-transform: scale(0.9, 0.9);
+	-webkit-transform: scale(0.9, 0.9);
+	transform: scale(0.9, 0.9);
+}
+
+.box>ul:hover li {
+	left: -125px;
+	transition: all 0.75s ease;
+}
+
+.box>ul li {
+	width: 100px;
+	padding: 65px 25px 30px 25px;
+	z-index: 100;
+	position: relative;
+	left: 0px;
+	transition: all 0.5s ease;
+}
+
+.box>ul li:hover {
+	cursor: pointer;
+}
+
+.box>ul li strong {
+	font-family: "effra";
+	text-transform: uppercase;
+	font-weight: bold;
+	font-size: 16px;
+	line-height: 14px;
+	color: #333;
+}
+
+.box>ul li span {
+	display: block;
+	font-family: "Arial";
+	font-size: 13px;
+	margin-top: 20px;
+	color: #888;
+	font-family: "Arial";
+}

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="CommentMapper">
+
+	<!-- Beans 클래스의 객체이름(id)과 클래스이름(type) 명시 -->
+	<resultMap id="commentMap"
+		type="com.son.mypc.model.Comment">
+		<!-- Beans의 멤버변수(property)이름과 대상 테이블의 컬럼(column)을 연결한다. -->
+		<result property="commno" column="commno" />
+		<result property="comment" column="comment" />
+		<result property="reg_date" column="reg_date" />
+		<result property="membno" column="membno" />
+		<result property="docno" column="docno" />
+		<result property="user_id" column="user_id" />
+	</resultMap>
+
+	<!-- 다중행 조회를 위한 기능 정의 -->
+	<select id="selectCommentList"
+		parameterType="com.son.mypc.model.Comment" resultMap="commentMap">
+		SELECT
+		commno, comment, c.reg_date, m.user_id, c.membno
+		FROM comment c INNER
+		JOIN mypc.member m ON
+		c.membno=m.membno WHERE docno=#{docno}
+
+		ORDER BY
+		commno ASC
+	</select>
+
+	<!-- 데이터 저장을 위한 기능 정의 -->
+	<insert id="insertCommentItem"
+		parameterType="com.son.mypc.model.Comment"
+		useGeneratedKeys="true" keyProperty="docno">
+		INSERT INTO comment (commno,
+		comment, reg_date, membno, docno) VALUES
+		(#{commno}, #{comment},
+		#{reg_date}, #{membno}, #{docno});
+	</insert>
+
+	<!-- 데이터 갱신을 위한 기능 정의 -->
+	<update id="unsetComment"
+		parameterType="com.son.mypc.model.Comment">
+		UPDATE comment SET membno=1 WHERE membno=#{membno}
+	</update>
+
+	<!-- 데이터 삭제를 위한 기능 정의 -->
+	<delete id="deleteCommentItem"
+		parameterType="com.son.mypc.model.Comment">
+		DELETE FROM comment WHERE commno=#{commno};
+	</delete>
+
+	<!-- 데이터 수 조회를 위한 기능 정의 -->
+	<select id="selectCommentCount"
+		parameterType="com.son.mypc.model.Comment" resultType="int">
+		SELECT
+		COUNT(*) FROM comment WHERE docno=#{docno}
+	</select>
+
+</mapper>

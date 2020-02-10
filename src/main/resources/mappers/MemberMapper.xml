@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="MemberMapper">
+
+	<!-- Beans 클래스의 객체이름(id)과 클래스이름(type) 명시 -->
+	<resultMap id="memberMap" type="com.son.mypc.model.Member">
+		<!-- Beans의 멤버변수(property)이름과 대상 테이블의 컬럼(column)을 연결한다. -->
+		<result property="membno" column="membno" />
+		<result property="user_id" column="user_id" />
+		<result property="user_pw" column="user_pw" />
+		<result property="name" column="name" />
+		<result property="birthdate" column="birthdate" />
+		<result property="gender" column="gender" />
+		<result property="email" column="email" />
+		<result property="addr1" column="addr1" />
+		<result property="addr2" column="addr2" />
+		<result property="tel" column="tel" />
+		<result property="reg_date" column="reg_date" />
+	</resultMap>
+	
+	<!-- 단일행 조회를 위한 기능 정의 -->
+	<!-- User_id로 단일행 조회 -->
+	<select id="selectIdCheck"
+		parameterType="com.son.mypc.model.Member" resultMap="memberMap">
+		SELECT membno, user_id, name, user_pw, email FROM mypc.member 
+		WHERE user_id=#{user_id}
+	</select>
+	<!-- email로 단일행 조회 -->
+	<select id="selectEmailCheck"
+		parameterType="com.son.mypc.model.Member" resultMap="memberMap">
+		SELECT membno, user_id, name, user_pw, email FROM mypc.member 
+		WHERE email=#{email}
+	</select>
+	<!-- membno로 단일행 추출 -->
+	<select id="selectMemberItem"
+		parameterType="com.son.mypc.model.Member" resultMap="memberMap">
+		SELECT membno, user_id, user_pw, name, birthdate, gender, email, addr1, addr2, tel, reg_date FROM mypc.member
+		WHERE membno=#{membno}
+	</select>
+
+	<!-- 다중행 조회를 위한 기능 정의 -->
+	<select id="selectMemberList"
+		parameterType="com.son.mypc.model.Member" resultMap="memberMap">
+		SELECT * FROM mypc.member
+		
+		<where>
+			<if test="true">
+				membno != 1
+			</if>
+			<if test="gender != null and gender != ''">
+				AND gender = #{gender}
+			</if>
+			<if test="name != null and name != ''">
+				AND name LIKE concat('%', #{name}, '%')
+			</if>
+			<if test="user_id != null and user_id != ''">
+				AND user_id LIKE concat('%', #{user_id}, '%')
+			</if>
+		</where>
+
+		ORDER BY membno DESC
+
+		<if test="listCount > 0">
+			LIMIT #{offset}, #{listCount}
+		</if>
+	</select>
+	<!-- 모든 Membno 조회 [membno != 1] -->
+	<select id="selectMembnoList"
+		parameterType="com.son.mypc.model.Member" resultMap="memberMap">
+		SELECT membno FROM mypc.member 
+		WHERE membno != 1
+	</select>
+
+	<!-- 데이터 저장을 위한 기능 정의 -->
+	<insert id="insertMembItem"
+		parameterType="com.son.mypc.model.Member" useGeneratedKeys="true"
+		keyProperty="membno">
+		INSERT INTO 
+		mypc.member (user_id, user_pw, name, birthdate,
+		gender, email, addr1, addr2, tel, reg_date) 
+		VALUES
+		(#{user_id}, #{user_pw}, #{name}, #{birthdate}, #{gender}, 
+		#{email}, #{addr1}, #{addr2}, #{tel}, #{reg_date});
+	</insert>
+
+	<!-- 데이터 갱신을 위한 기능 정의 -->
+	<!-- 사용자 -->
+	<update id="updateMemberItem"
+		parameterType="com.son.mypc.model.Member">
+		UPDATE mypc.member SET
+		user_pw=#{user_pw}, name=#{name},
+		birthdate=#{birthdate}, gender=#{gender}, 
+		email=#{email}, addr1=#{addr1}, 
+		addr2=#{addr2}, tel=#{tel}
+		WHERE
+		membno =#{membno}
+	</update>
+	<!-- 관리자 -->
+	<update id="updateMemberItemForAdmin"
+		parameterType="com.son.mypc.model.Member">
+		UPDATE mypc.member SET
+		name=#{name},birthdate=#{birthdate},
+		gender=#{gender}, email=#{email},
+		addr1=#{addr1}, addr2=#{addr2}, tel=#{tel}
+		WHERE
+		membno =#{membno}
+	</update>
+	<!-- 임시비밀번호로 수정 -->
+	<update id="updateMemberPw"
+		parameterType="com.son.mypc.model.Member">
+		UPDATE mypc.member SET 
+		user_pw=#{user_pw} 
+		WHERE
+		membno=#{membno};
+	</update>
+
+	<!-- 데이터 삭제를 위한 기능 정의 -->
+	<delete id="deleteMemberItem"
+		parameterType="com.son.mypc.model.Member">
+		DELETE FROM mypc.member WHERE membno=#{membno};
+	</delete>
+	
+	<!-- 데이터 수 조회를 위한 기능 정의 -->
+	<select id="selectMemberCount"
+		parameterType="com.son.mypc.model.Member" resultType="int">
+		SELECT COUNT(*) FROM mypc.member 
+
+		<where>
+			<if test="true">
+				AND membno !=1  
+			</if>
+			<if test="gender != null and gender != ''">
+				AND gender = #{gender}
+			</if>
+			<if test="user_id != null and user_id != ''">
+				AND user_id LIKE concat('%', #{user_id}, '%')
+			</if>
+			<if test="name != null and name != ''">
+				AND name LIKE concat('%', #{name}, '%')
+			</if>
+			<if test="email != null and email != ''">
+				AND email LIKE concat('%', #{email}, '%')
+			</if>
+		</where>
+	</select>
+
+</mapper>

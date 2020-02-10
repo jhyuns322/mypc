@@ -1,0 +1,91 @@
+.content{
+	border:1px solid #eee;
+	padding: 50px;
+}
+
+/** 상품 이미지 **/
+.mypc-item-info .mypc-pic-box{
+	border-right: 1px solid #aaa;
+}
+
+.mypc-item-info .mypc-pic{
+	width: 200px;
+	height: 200px;
+	box-shadow: 0 1px 3px #ccc;
+	border-radius: 6px; 
+	overflow: hidden;
+}
+
+/** 상품 기본 정보 **/
+.mypc-info-box h4{
+	font-weight: bold;
+}
+
+.mypc-info-box div{
+	font-size: 0.9em;
+}
+
+.mypc-info-box h3{
+	margin-top:35px;
+}
+
+
+/** 상품 상세 정보 **/
+.mypc-detail-item-info caption{
+	font-size: 1.7em;
+	color: black;
+}
+
+.mypc-detail-item-info{
+	border: 1px solid #aaa;
+}
+
+.mypc-detail-item-info th, .mypc-detail-item-info td{
+	padding: 1px;
+	border:1px solid #ccc;
+}
+
+.mypc-detail-item-info div{
+	padding:20px;
+	border:1px solid #aaa;
+}
+
+.mypc-detail-item-info th div{
+	font-size: 1.1em;
+}
+
+.mypc-detail-item-info td div{
+	font-size: 0.9em;
+	padding: 22px;
+}
+
+/** 상품 장바구니 및 구매하기 버튼 **/
+.mypc-buy button {
+	width: 81px;
+	height: 65px;
+	display: inline-block;
+	background-color: #696969;
+	font-size: 15px;
+	border-style: none;
+}
+
+.mypc-buy .mypc-cart {
+	margin-right: 10px;
+	background-color: white;
+	color: #696969;
+	border: 1px solid #c6c6c6;
+}
+
+.mypc-buy .mypc-addItem:hover {
+	background-color: #333;
+}
+
+/** 상품 이미지 정보 **/
+.mypc-img-item-info{
+	margin: auto;
+	width:850px;
+}
+
+.mypc-img-item-info img{
+	width:100%;
+}

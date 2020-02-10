@@ -1,0 +1,37 @@
+@charset "UTF-8";
+
+.mypc-pagination-center {
+	text-align: center;
+	display: lnline-block;
+}
+
+.mypc-searchForm {
+	margin-bottom: 40px;
+}
+
+.mypc-font-grey {
+	color: #aaa;
+}
+
+.mypc-font-grey a{
+	color: #aaa;
+}
+
+.mypc-font-red {
+	color: #f55;
+}
+
+.mypc-font-black a {
+	color: #000;
+}
+
+.table>tbody>tr{
+	height:50px;
+}
+
+.table>tbody>tr>td{
+	overflow:hidden;
+	white-space : nowrap;
+	text-overflow: ellipsis;
+	vertical-align:middle;
+}

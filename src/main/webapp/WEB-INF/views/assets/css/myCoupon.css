@@ -1,0 +1,141 @@
+@charset "UTF-8";
+
+/** 쿠폰 카운트 **/
+.mypc-coupon-nav {
+	border-bottom:1px solid #bbb;
+	border-top:1px solid #bbb;
+	padding: 0;
+	height: 56px;
+}
+
+.mypc-coupon-nav > div{
+	padding: 0;
+	background-color: #fff;
+	heigth:56px;
+} 
+
+.mypc-coup-alram {
+	font-weight: bold;
+	display:block;
+	padding: 14px 40px;
+	text-align: center;
+	text-decoration: none;
+	color: #222;
+	margin: 2px 0;
+}
+
+.mypc-coupon-count{
+	color:red;
+	font-size:1.1em;
+}
+
+
+/** 경고문 **/
+.mypc-cautions {
+	width: 92%;
+	margin-left: 4%;
+	padding: 10px 0 10px 10px;
+	border: 1px solid #ddd;
+	background-color: rgb(235, 235, 235);
+	font-size: 0.8em;
+	margin-bottom: 20px;
+}
+
+.cautions ul {
+	padding-left: 20px;
+	margin: 0;
+	list-style: disc;
+}
+
+
+/** 쿠폰 리스트 **/
+.mypc-coupon-box {
+	margin-top: 30px;
+}
+
+/** 쿠폰 無 **/
+.mypc-empty{
+	text-align: center;
+	min-height: 150px;
+	line-height: 450px;
+}
+
+/** 사이드 쿠폰 **/
+.mypc-black-box{
+	width: 23%;
+	height: 161px;
+	margin-right:27px;
+	background-color:#333;
+	border-radius: 5px;
+	border-left: none;
+	box-shadow: 1px 1px 5px #ddd;
+	border: 1px solid #ddd;
+}
+
+/** 쿠폰삭제 버튼 **/
+.mypc-coupon-delete{
+	color: #eee;
+	display: block;
+	font-size:1.4em;
+	width:90%;
+	text-align:right;
+	margin-bottom:20px;
+	
+}
+
+/** 할인율 **/
+.mypc-coupon-text{
+	font-size: 3em;
+	color:#eee;
+	text-align: center;
+}
+
+
+/** 쿠폰 본문 **/
+.mypc-white-box {
+	width: 67%;
+	height: 161px;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	padding: 20px;
+	position: relative;
+	border-right: 2px dotted #888;
+	box-shadow: 1px 1px 3px #ddd;
+}
+
+/** 쿠폰명 **/
+.mypc-coupon-name {
+	font-size: 0.9em;
+	font-weight: bold;
+}
+
+/** 할인율 **/
+.mypc-coupon-content {
+	font-size: 3.5em;
+}
+
+/** 사용가능 기간 **/
+.mypc-coupon-term {
+	font-size: 0.8em;
+	color: #999;
+}
+
+/** 사용가능 여부 **/
+.mypc-coupon-dDay {
+	position: absolute;
+	top: 15px;
+	right: 15%;
+	font-size:0.9em;
+	padding: 2px 10px 0;
+	border-radius: 15px;
+}
+/** 사용가능 **/
+.available{
+	color: red;
+	border: 1px solid red;
+}
+/** 사용불가능 **/
+.expired{
+	border: 1px solid black;
+	color: black;
+}

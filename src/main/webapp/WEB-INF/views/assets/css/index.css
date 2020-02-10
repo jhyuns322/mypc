@@ -1,0 +1,100 @@
+@charset "UTF-8";
+
+.mypc-indexcontainer1 .mypc-imgbox1 {
+	background-color: black;
+	height: 650px;
+}
+
+.mypc-indexcontainer1 div>img {
+	width: 1200px;
+	height: 650px;
+	position: absolute;
+	margin-left: auto;
+	margin-right: auto;
+	left: 0;
+	right: 0;
+}
+
+.mypc-itemlogo1 img {
+	width: 430px;
+	height: auto;
+	position: absolute;
+	margin-left: auto;
+	margin-right: auto;
+	top: 100px;
+	left: 360px;
+	z-index: 1;
+}
+
+.mypc-indexcontainer2 {
+	background: -webkit-linear-gradient(left, rgba(69, 72, 77, 1) 0%, rgba(0, 0, 0, 1) 100%);
+	height: auto;
+	padding-bottom: 10px;
+}
+
+.mypc-youtube-wrapper {
+	margin-top: 20px;
+	padding-left: 20px;
+	padding-right: 20px;	
+}
+
+iframe {
+	border: 0;
+}
+
+.mypc-videoinfo1 {
+	color: white;
+	margin-top:10px;
+	font-size: 20px;
+}
+
+.mypc-videoinfo2 {
+	color: #999;
+	margin-top: 10px;
+	font-size: 14px;
+}
+
+.mypc-indexcontainer3 .mypc-imgbox3 {
+	background-color: black;
+	height: 500px;
+}
+
+.a img {
+	width: 1100px;
+	height: 500px;
+	position: absolute;
+	margin-left: auto;
+	margin-right: auto;
+	left: 0;
+	right: 0;
+}
+
+.b img {
+	width: 20%;
+	height: 300px;
+	position: absolute;
+	top: 90px;
+	right: 28%;
+}
+
+@media ( max-width : 767px) {
+
+.mypc-itemlogo1 img {
+	width: 430px;
+	height: auto;
+	position: absolute;
+	margin-left: auto;
+	margin-right: auto;
+	top: 65px;
+	left: 25px;
+	z-index: 1;
+}
+	
+.b img {
+	width: 50%;
+	height: 300px;
+	position: absolute;
+	top: 90px;
+	right: 3%;
+	
+}
