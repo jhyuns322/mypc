@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page trimDirectiveWhitespaces="true"%>
-
 <!DOCTYPE html>
 <html lang="ko">
 <%@ include file="./inc/head.jsp"%>
@@ -14,21 +13,19 @@
 
 	<!-- content -->
 	<section class="container-fluid">
-
 		<div class="mypc-itemlogo1">
-			<img class="img-responsive" alt="" src="${pageContext.request.contextPath}/download?file=index_pic1_4.png">
+			<img class="img-responsive" alt="" src="${pageContext.request.contextPath}/download?file=index1.png">
 		</div>
-
+		
 		<!-- fadeslide -->
 		<div class="row mypc-indexcontainer1">
 			<div id="mypc-slide" class="mypc-imgbox1">
 				<!-- fadeslide 이미지 (1200x650) -->
-				<img class="img-responsive" alt="" src="${pageContext.request.contextPath}/download?file=index_pic1_1.png">
-				<img class="img-responsive" alt="" src="${pageContext.request.contextPath}/download?file=index_pic1_2.png">
-				<img class="img-responsive" alt="" src="${pageContext.request.contextPath}/download?file=index_pic1_3.png">
+				<img class="img-responsive" alt="" src="${pageContext.request.contextPath}/download?file=index2.png">
+				<img class="img-responsive" alt="" src="${pageContext.request.contextPath}/download?file=index3.png">
+				<img class="img-responsive" alt="" src="${pageContext.request.contextPath}/download?file=index4.png">
 			</div>
 		</div>
-
 		<div class="row mypc-indexcontainer2">
 			<div class="col-md-10 col-md-offset-1">
 				<div class="col-md-4 mypc-youtube-wrapper">
@@ -57,10 +54,10 @@
 		<div class="row mypc-indexcontainer3">
 			<div class="mypc-imgbox3" style="position: relative;">
 				<div class="a">
-					<img class="img-responsive" src="${pageContext.request.contextPath}/download?file=index_pic6_1.png">
+					<img class="img-responsive" src="${pageContext.request.contextPath}/download?file=index5.png">
 				</div>
 				<div class="b" data-aos="fade-zoom-in" data-aos-offset="500" data-aos-easing="ease-in-sine" data-aos-duration="700">
-					<img class="img-responsive" src="${pageContext.request.contextPath}/download?file=index_pic6_2.png">
+					<img class="img-responsive" src="${pageContext.request.contextPath}/download?file=index6.png">
 				</div>
 			</div>
 		</div>
@@ -74,7 +71,7 @@
 	<script type="text/javascript">
 		$(function() {
 			userCommon(); // 상단 메뉴바의 기능을 구현
-			AOS.init();
+			AOS.init();   // 하단 이미지 slide
 		});
 	</script>
 </body>

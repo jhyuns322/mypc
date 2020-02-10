@@ -1,6 +1,7 @@
 $(function(){ 
 	var x = setInterval(fadeSlide, 3000);
 	var i = 2;
+	
 	function fadeSlide() {
 		if (i == 0) {
 			$("#mypc-slide>img").fadeIn("slow");
