@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page trimDirectiveWhitespaces="true"%>
-
 <!DOCTYPE html>
 <html lang="ko">
 <%@ include file="./inc/head.jsp"%>
@@ -11,7 +10,7 @@
 <body>
 	<%@ include file="./inc/userHeader.jsp"%>
 
-	<!-- Content 시작 -->
+	<!-- content -->
 	<section class="container content">
 		<div class="row">
 			<div class="page-header mypc-margin">
@@ -19,8 +18,7 @@
 			</div>
 			
 			<div class="col-md-8 col-md-offset-2">
-
-				<!-- Join Form 시작 -->
+				<!-- join form -->
 				<form id="join_form" class="join-form form-horizontal" role="form" action="${pageContext.request.contextPath}/index">
 					<fieldset>
 						<!-- 중복검사 확인 여부를 위한 값 -->
@@ -28,48 +26,38 @@
 						<input id="ckd_email" name="ckd_email" type="hidden" value="1" />
 						<!-- 필수 입력사항  시작 -->
 						<legend>필수 입력사항</legend>
-
 						<!-- 아이디 입력 -->
 						<div class="form-group">
 							<span class="col-md-3"><label class="control-label" for="user_id">아이디</label></span> 
 							<span class="col-md-7"><input type="text" id="user_id" class="form-control" name="user_id" placeholder="아이디를 입력하세요."></span>
-
 							<!-- 아이디 중복 검사 버튼 -->
 							<span class="col-md-2"><button type="button" id="id_uniq_check" class="btn btn-primary" name="id_uniq_check">중복검사</button></span>
 							<span class="col-md-2"><button type="button" id="edit_id" class="btn btn-primary" name="edit_id">수정하기</button></span>
 						</div>
-						
 						<br />
-
 						<!-- 비밀번호 입력 -->
 						<div class="form-group">
 							<span class="col-md-3"><label class="control-label" for="user_pw">비밀번호</label></span>
 							<span class="col-md-7"><input type="password" id="user_pw" class="form-control" name="user_pw" placeholder="비밀번호를 입력하세요."></span>
 						</div>
-
 						<!-- 비밀번호 확인 입력 -->
 						<div class="form-group">
 							<span class="col-md-3"><label class="control-label" for="user_pw_re">비밀번호 확인</label></span>
 							<span class="col-md-7"><input type="password" id="user_pw_re" class="form-control" name="user_pw_re" placeholder="비밀번호를 한 번 더 입력하세요."></span>
 						</div>
-						
 						<br />
-
 						<!-- 이름 입력 -->
 						<div class="form-group">
 							<span class="col-md-3"><label class="control-label" for="name">이름</label></span>
 							<span class="col-md-7"><input type="text" id="name" class="form-control" name="name" placeholder="이름을 입력하세요."></span>
 						</div>
-						
 						<br />
-
 						<!-- 생년월일 입력 -->
 						<div class="form-group">
 							<span class="col-md-3"><label class="control-label" for="birthdate">생년월일</label></span>
 							<span class="col-md-7"><input type="date" id="birthdate" class="form-control" name="birthdate" placeholder="생년월일을 입력하세요."></span>
 						</div>
 						<br />
-
 						<!-- 성별 입력 -->
 						<div class="form-group">
 							<span class="col-md-4"><label class="control-label" for="gender">성별</label></span>
@@ -78,20 +66,16 @@
 						</div>
 						
 						<br />
-
 						<!-- 이메일 입력 -->
 						<div class="form-group">
 							<span class="col-md-3"><label class="control-label" for="email">이메일</label></span> 
-							<span class="col-md-7"><input type="email" id="email" class="form-control" name="email" placeholder="이메일을 입력하세요."></span>
-							
+							<span class="col-md-7"><input type="email" id="email" class="form-control" name="email" placeholder="이메일을 입력하세요."></span>					
 						<!-- 이메일 중복 검사 버튼 -->
 							<span class="col-md-2"><button type="button" id="email_uniq_check" class="btn btn-primary" name="email_uniq_check">중복검사</button></span>
 							<span class="col-md-2"><button type="button" id="edit_email" class="btn btn-primary" name="edit_email">수정하기</button></span>
 						</div>
-
 						<!-- 선택 입력사항 시작 -->
 						<legend>선택 입력사항</legend>
-
 						<!-- 주소 입력 -->
 						<div class="form-group">
 							<span class="col-md-3"><label class="control-label" for="addr1">주소</label></span> 
@@ -104,18 +88,14 @@
 							<span class="col-md-5"><input type="text" id="detailAddress" class="form-control" name="addrDetail" placeholder="주소 검색 후 입력 가능합니다." readonly></span>
 							<span class="col-md-2"><input type="text" id="extraAddress" class="form-control" name="addrExtra"  placeholder="참고항목" readonly></span>
 						</div>
-
 						<br />
-
 						<!-- 연락처 입력 -->
 						<div class="form-group">
 							<span class="col-md-3"><label class="control-label" for="tel">연락처</label></span>
 							<span class="col-md-7"><input type="tel" id="tel" class="form-control" name="tel" maxlength='11' placeholder="연락처를 '-'없이 입력하세요."></span>
 						</div>
-
 						<!-- 약관 동의 시작 -->
 						<legend>약관 동의</legend>
-
 						<!-- 약관 내용 -->
 						<textarea class="form-control" style="resize: none" readonly rows="10">
 제 1 장 총 칙
@@ -226,20 +206,19 @@
 [부칙]
 
 (시행일) 이 약관은 2019년 09월부터 시행합니다.
-</textarea>
+						</textarea>
 
 						<!-- 약관 동의 입력 -->
 						<div class="form-group">
 							<span class="col-md-3 col-md-offset-8"><label for="join_agree" class="control-label">(필수) 약관에 동의합니다.</label></span>
 							<span class="col-md-1"><input type="checkbox" id="join_agree" class="mypc-agreeckbox" name="join_agree" value="1"></span>
-						</div>
-						
+						</div>	
 						<!-- 가입 완료 -->
 						<div class="col-md-1 col-md-offset-11"><button type="submit" class="form-group btn btn-primary">가입완료</button></div>
-							
 					</fieldset>
 				</form>
 			</div>
+			
 		</div>
 	</section>
 

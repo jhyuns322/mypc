@@ -43,7 +43,7 @@ $(function() {
 		e.stopPropagation();
 		$('#id_box span').addClass('mypc-input-click');
 	});
-	
+
 	if ($("#user_pw").val() == '' || $("#user_pw").val() == null) {
 		$("#pw_box span").removeClass('mypc-input-click');
 	}
@@ -180,63 +180,66 @@ $(function() {
 		}
 	});
 
-	$("#login_form").validate({
-		rules : {
-			user_id : {
-				required : true,
-				alphanumeric : true,
-				minlength : 6,
-				maxlength : 16
-			},
-			user_pw : {
-				required : true,
-				minlength : 6,
-				maxlength : 20
-			}
-		},
-		messages : {
-			user_id : {
-				required : "아이디를 입력하세요.",
-				alphanumeric : "아이디는 영어, 숫자만 입력가능합니다.",
-				minlength : "아이디는 6글자 이상 입력하셔야 합니다.",
-				maxlength : "아이디는 최대 16자까지 가능합니다."
-			},
-			user_pw : {
-				required : "비밀번호를 입력하세요.",
-				minlength : "비밀번호는 6글자 이상 입력하셔야 합니다.",
-				maxlength : "비밀번호는 최대 20자까지 가능합니다."
-			}
-		},
-		submitHandler : function(frm) {
-			var queryString = $("#login_form").serialize();
-			$.ajax({
-				url : "sessionSave",
-				method : "POST",
-				data : queryString,
-				error : function(error) {
-					swal({
-						text : '아이디 또는 비밀번호가 일치하지 않습니다.',
-						type : 'error',
-						confirmbuttonText : 'Yes'
-					})
-				},
-				success : function(json) {
-					if (json.rt == "OK") {
-						var name = json.item.name;
-						swal({
-							html : '<strong>' + name + '</strong>' + '님 환영합니다.',
-							type : 'success',
-							confirmbuttonText : 'Yes'
-						}).then(function(result) {
-							if (result.value) {
-								frm.submit();
-							}
-						})
+	$("#login_form").validate(
+			{
+				rules : {
+					user_id : {
+						required : true,
+						alphanumeric : true,
+						minlength : 6,
+						maxlength : 16
+					},
+					user_pw : {
+						required : true,
+						minlength : 6,
+						maxlength : 20
 					}
+				},
+				messages : {
+					user_id : {
+						required : "아이디를 입력하세요.",
+						alphanumeric : "아이디는 영어, 숫자만 입력가능합니다.",
+						minlength : "아이디는 6글자 이상 입력하셔야 합니다.",
+						maxlength : "아이디는 최대 16자까지 가능합니다."
+					},
+					user_pw : {
+						required : "비밀번호를 입력하세요.",
+						minlength : "비밀번호는 6글자 이상 입력하셔야 합니다.",
+						maxlength : "비밀번호는 최대 20자까지 가능합니다."
+					}
+				},
+				submitHandler : function(frm) {
+					var queryString = $("#login_form").serialize();
+					$.ajax({
+						url : "sessionSave",
+						method : "POST",
+						data : queryString,
+						error : function(error) {
+							swal({
+								text : '아이디 또는 비밀번호가 일치하지 않습니다.',
+								type : 'error',
+								confirmbuttonText : 'Yes'
+							})
+						},
+						success : function(json) {
+							if (json.rt == "OK") {
+								var name = json.item.name;
+								swal(
+										{
+											html : '<strong>' + name
+													+ '</strong>' + '님 환영합니다.',
+											type : 'success',
+											confirmbuttonText : 'Yes'
+										}).then(function(result) {
+									if (result.value) {
+										frm.submit();
+									}
+								})
+							}
+						}
+					});
 				}
 			});
-		}
-	});
 
 	$("#findId_form").validate({
 		rules : {
@@ -370,7 +373,7 @@ $(function() {
 			});
 		}
 	});
-	
+
 	/** tab키 방지 */
 	$("*").keydown(function(e) {
 		if (e.keyCode == 9) {
@@ -389,9 +392,9 @@ $(function() {
 			$("#user_id").focus();
 		}
 	});
-	
-	$('#user_id').on("propertychange change keyup paste input",function(){
-		if(!$('#user_id, #user_pw').val().equal('')){
+
+	$('#user_id').on("propertychange change keyup paste input", function() {
+		if (!$('#user_id, #user_pw').val().equal('')) {
 			$('#id_box span').addClass('mypc-input-click')
 		}
 	});

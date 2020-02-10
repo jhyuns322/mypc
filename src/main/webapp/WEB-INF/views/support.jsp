@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page trimDirectiveWhitespaces="true"%>
-
 <!DOCTYPE html>
 <html lang="ko">
 <%@ include file="./inc/head.jsp"%>
@@ -10,7 +9,7 @@
 <body>
 	<%@ include file="./inc/userHeader.jsp"%>
 
-	<!-- Content 시작 -->
+	<!-- content -->
 	<section class="container content">
 		<div class="row">
 			<div class="page-header mypc-margin">
@@ -34,10 +33,10 @@
 				<div class="tab-pane fade in active" id="questions">
 					<div class="mypc-content-box">
 
-						<!-- ACCORDION -->
+						<!-- accordion -->
 						<div class="mypc-question-box panel-group" id="accordion">
 							<h4>자주 찾는 질문</h4>
-							<!-- QUESTION_1 -->
+							<!-- question_1 -->
 							<div class="panel panel-default">
 								<div class="panel-heading">
 									<h4 class="panel-title">
@@ -52,7 +51,7 @@
 									</div>
 								</div>
 							</div>
-							<!-- QUESTION_2 -->
+							<!-- question_2 -->
 							<div class="panel panel-default">
 								<div class="panel-heading">
 									<h4 class="panel-title">
@@ -69,7 +68,7 @@
 									</div>
 								</div>
 							</div>
-							<!-- QUESTION_3 -->
+							<!-- question_3 -->
 							<div class="panel panel-default">
 								<div class="panel-heading">
 									<h4 class="panel-title">
@@ -84,7 +83,7 @@
 									</div>
 								</div>
 							</div>
-							<!-- QUESTION_4 -->
+							<!-- question_4 -->
 							<div class="panel panel-default">
 								<div class="panel-heading">
 									<h4 class="panel-title">
@@ -97,7 +96,7 @@
 									</div>
 								</div>
 							</div>
-							<!-- QUESTION_5 -->
+							<!-- question_5 -->
 							<div class="panel panel-default">
 								<div class="panel-heading">
 									<h4 class="panel-title">
@@ -113,7 +112,6 @@
 								</div>
 							</div>
 						</div>
-						<!-- ACCORDION -->
 
 						<!-- 서비스센터 맵 -->
 						<h4>서비스 센터 찾기</h4>
@@ -129,13 +127,13 @@
 					</div>
 				</div>
 
-				<!-- 1대1 문의글 작성 Form -->
+				<!-- 1대1 문의글 작성 form -->
 				<div class="tab-pane fade" id="contact">
 					<div class="mypc-content-box">
 						<h4>문의글 작성</h4>
 						<form id="inquiry_form" class="form-horizontal" role="form" action="${pageContext.request.contextPath}/support">
 							<fieldset>
-								<!-- INQUIRY FORM -->
+								<!-- inquiry form -->
 								<div class="form-group">
 									<label for="subject" class="col-md-2 control-label">글 제목</label>
 									<div class="col-md-9">
@@ -148,8 +146,7 @@
 										<textarea id="content" class="form-control" name="content" rows="16" style="resize: none;" placeholder="내용을 입력하세요."></textarea>
 									</div>
 								</div>
-
-								<!-- INQUIRY BOTTON -->
+								<!-- inquiry button -->
 								<div class="form-group">
 									<div class="col-md-offset-10 col-md-1">
 										<button type="submit" class="btn btn-primary btn-block">전송</button>
@@ -159,8 +156,7 @@
 						</form>
 					</div>
 				</div>
-				<!-- 1대1 문의글 작성 Form -->
-
+				
 			</div>
 		</div>
 	</section>
@@ -172,16 +168,13 @@
 	<script type="text/javascript">
 		$(function() {
 			new selectors('sido', 'gugun', 'co');
-			var infowindow = new kakao.maps.InfoWindow({
-				zIndex : 1
-			});
+			var infowindow = new kakao.maps.InfoWindow({ zIndex : 1 });
 			var mapContainer = document.getElementById('map'), 	   // 지도를 표시할 div
 			mapOption = {
 				center : new kakao.maps.LatLng(37.5023, 127.0244), // 지도의 중심좌표
 				level : 3
 			};
-			var map = new kakao.maps.Map(mapContainer, mapOption); 	// 지도 생성
-			
+			var map = new kakao.maps.Map(mapContainer, mapOption); // 지도 생성
 			userCommon(); // 상단 메뉴바의 기능을 구현
 			supportVali();
 			kakaoMap(map,mapContainer,mapOption,infowindow);
