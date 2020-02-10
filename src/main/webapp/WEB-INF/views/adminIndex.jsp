@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page trimDirectiveWhitespaces="true"%>
-
 <!DOCTYPE html>
 <html lang="ko">
 <%@ include file="./inc/head.jsp"%>
@@ -10,13 +9,13 @@
 <body>
 	<%@ include file="./inc/adminHeader.jsp"%>
 	
-	<!-- Content 시작 -->
+	<!-- content -->
 	<nav id="contents" class="container">
 		<div class="mypc-title col-lg-12 col-md-12 col-sm-12 col-xs-12">
 			<h2>관리자 메뉴</h2>
 		</div>
 
-		<!-- Menu_Container 시작 -->
+		<!-- Menu Container -->
 		<article class="mypc-menucontainer col-lg-3 col-md-3 col-sm-6 col-xs-12">
 			<div onclick="location.href ='adminMember'" style="cursor: pointer;" class="mypc-menubox">
 				<div>전체 회원 수 : <span class="mypc-font-color"><strong>${outputMember}</strong></span> 명</div>
@@ -50,7 +49,6 @@
 			</div>
 		</article>
 	</nav>
-	<!-- Content 끝 -->
 
 	<%@ include file="./inc/footer.jsp"%>
 	<%@ include file="./inc/adminScript.jsp"%>

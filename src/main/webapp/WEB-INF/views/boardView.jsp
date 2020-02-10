@@ -10,7 +10,7 @@
 <body>
 	<%@ include file="./inc/userHeader.jsp"%>
 
-	<!-- Content -->
+	<!-- content -->
 	<section class="container content">
 		<div class="row">
 			<c:choose>
@@ -210,7 +210,6 @@
 		</c:choose>
 		</div>
 	</section>
-	<!---------------Content 끝--------------->
 
 	<%@ include file="./inc/footer.jsp"%>
 	<%@ include file="./inc/userScript.jsp"%>

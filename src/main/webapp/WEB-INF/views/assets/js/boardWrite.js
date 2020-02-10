@@ -4,9 +4,7 @@ function ckeditor() {
 		width : '100%',
 		height : '550px'
 	});
-	
     CKEDITOR.instances["content"].on("instanceReady", function () {
-
         //set keyup event
         this.document.on("keyup", function () { CKEDITOR.instances["content"].updateElement(); });
         //and paste event

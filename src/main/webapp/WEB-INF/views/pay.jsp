@@ -70,7 +70,6 @@
 						<tr>
 							<td>
 								<div>
-								
 									<!-- 상품 이미지 -->
 									<c:url value="/download" var="item_img">
 										<c:param name="file" value="${item.item_imgthumb}" />
@@ -78,7 +77,6 @@
 									<div class="mypc-item-img">
 										<img src="${item_img}">
 									</div>
-									
 									<!-- 상품 정보(상품명, 스펙, 수량에 따른 가격) -->
 									<div class="mypc-info">
 										<div class="mypc-title">${item.item_name}</div>
@@ -92,7 +90,6 @@
 											</c:otherwise>
 										</c:choose> 
 									</div>
-									
 									<!-- 상품 수량 -->
 									<div class="mypc-quantity">
 										<span>
@@ -108,7 +105,6 @@
 									</div>
 								</div>
 							</td>
-							
 							<!-- 선택쿠폰 정보 -->
 							<td id="coup_table${status.index}" class="mypc-selected-coupon">
 								<span>이름</span>
@@ -122,7 +118,6 @@
 								 col-xs-offset-0 col-sm-offset-0 col-md-offset-2 col-lg-offset-3" 
 								 value="${status.index}">쿠폰 선택</button>
 							</td>
-							
 							<!-- 단일 상품 금액 -->
 							<td class="mypc-one-price">
 								<c:choose>
@@ -156,7 +151,6 @@
 									</div>
 								</td>
 							</tr>
-							
 							<!-- 배송지 선택 버튼 -->
 							<tr>
 								<th>배송지선택</th>
@@ -171,7 +165,6 @@
 									</div>
 								</td>
 							</tr>
-							
 							<!-- 수령인 연락처 -->
 							<tr>
 								<th>연락처</th>
@@ -188,13 +181,11 @@
 									</div>
 								</td>
 							</tr>
-							
 							<!-- 배송지 입력 -->
 							<tr>
 								<th>주소지</th>
 								<td>
 									<div class="mypc-address">
-									
 										<!-- 기존 배송지(숨김) -->
 										<input type="hidden" id="postcode" value="${addr1_postcode}" />
 										<input type="hidden" id="addr1" value="${addr1}" />
@@ -207,7 +198,6 @@
 												<input type="hidden" id="extra" value="" />
 											</c:otherwise>
 										</c:choose>
-										
 										<!-- 배송지 입력란 -->
 										<input type="text" name="order_postcode" class="mypc_postcode" id="sample6_postcode" placeholder="우편번호" readonly value="${addr1_postcode}">
 										<input type="text" name="order_addr1" class="mypc_addr1"  id="sample6_address" placeholder="주소" value="${addr1}" readonly>
@@ -227,7 +217,6 @@
 						</tbody>
 					</table>
 				</div>
-				
 				<!-- 최종 결제 금액 -->
 				<div class="col-xs-12 col-sm-5 col-md-5 col-lg-4 mypc-last-pay-box">
 					<div class="pay-right-container">
@@ -243,7 +232,6 @@
 										<span class="mypc-price-title01">배송비</span>
 										<span class="mypc-price">무료</span>
 									</li>
-									<hr/>
 									<li>
 										<div>
 											<span class="mypc-price-title01">할인 금액</span> 
@@ -295,7 +283,7 @@
 						<!-- 쿠폰 유무 확인 -->
 						<c:choose>
 						
-							<%-- 쿠폰 有 --%>
+							<%-- 쿠폰이 있을 시 --%>
 							<c:when test="${output_coup != null}">
 								<c:forEach var="item" items="${output_coup}" varStatus="status">
 									<tr class="mypc-coupon-box">
@@ -319,7 +307,7 @@
 								</c:forEach>
 							</c:when>
 							
-							<%-- 쿠폰 無 --%>
+							<%-- 쿠폰이 없을 시 --%>
 							<c:when test="${output_coup == null}">
 								<tr>
 									<td>쿠폰이 없습니다.</td>
@@ -337,12 +325,12 @@
 	<%@ include file="./inc/footer.jsp"%>
 	<%@ include file="./inc/userScript.jsp"%>
 	<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-	<script src="assets/js/Pay.js"></script>
+	<script src="assets/js/pay.js"></script>
 	<script type="text/javascript">
 		$(function() {
 			userCommon(); // 상단 메뉴바의 기능을 구현
 		});
 	</script>
-
+	
 </body>
 </html>
