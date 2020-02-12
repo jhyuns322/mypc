@@ -6,39 +6,33 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.son.mypc.helper.MailHelper;
 import com.son.mypc.helper.RegexHelper;
 import com.son.mypc.helper.WebHelper;
 import com.son.mypc.model.Coupon;
 import com.son.mypc.model.Member;
-import com.son.mypc.service.CommentService;
 import com.son.mypc.service.CouponService;
-import com.son.mypc.service.DocumentService;
 import com.son.mypc.service.MemberService;
 
 @RestController
-public class SonRestController {
+public class CouponController {
 
 	@Autowired
 	WebHelper webHelper;
 	@Autowired
 	RegexHelper regexHelper;
-	@Autowired
-	MailHelper mailHelper;
+	
 	@Autowired
 	MemberService memberService;
 	@Autowired
-	DocumentService documentService;
-	@Autowired
-	CommentService commentService;
-	@Autowired
 	CouponService couponService;
-
+	
 	/** 20) 쿠폰 지급 컨트롤러(관리자) */
 	@RequestMapping(value = "couponSet", method = RequestMethod.POST)
 	public Map<String, Object> couponSet() {
@@ -138,5 +132,21 @@ public class SonRestController {
 		return webHelper.getJsonData(map);
 	}
 	
+	/** 쿠폰_삭제 페이지 */
+	@RequestMapping(value = "/myCoupon_del", method = RequestMethod.PUT)
+	public Map<String, Object> myCoupon_del(HttpServletRequest request) {
 
+		Coupon input = new Coupon();
+		int coupno = webHelper.getInt("coupno");
+		input.setCoupno(coupno);
+
+		try {
+			couponService.deleteCoupon(input);
+		} catch (Exception e) {
+			return webHelper.getJsonError(e.getLocalizedMessage());
+		}
+
+		return webHelper.getJsonData();
+	}
+	
 }

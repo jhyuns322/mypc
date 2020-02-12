@@ -10,13 +10,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.son.mypc.helper.RegexHelper;
 import com.son.mypc.helper.WebHelper;
 import com.son.mypc.model.Cart;
 import com.son.mypc.model.Coupon;
@@ -24,26 +21,15 @@ import com.son.mypc.model.Item;
 import com.son.mypc.model.Order;
 import com.son.mypc.service.CartService;
 import com.son.mypc.service.CouponService;
-import com.son.mypc.service.DocumentService;
 import com.son.mypc.service.ItemService;
-import com.son.mypc.service.MemberService;
 import com.son.mypc.service.OrderService;
 
 @RestController
-public class YoonRestController {
+public class OrderPayController {
 
-	/** WebHelper 주입 */
 	@Autowired
 	WebHelper webHelper;
-	/** RegexHelper 주입 */
-	@Autowired
-	RegexHelper regexHelper;
-	/** Service 패턴 구현체 주입 */
-	@Autowired
-	MemberService memberService;
-	/** Service 패턴 구현체 주입 */
-	@Autowired
-	DocumentService documentService;
+	
 	@Autowired
 	OrderService orderService;
 	@Autowired
@@ -52,11 +38,6 @@ public class YoonRestController {
 	ItemService itemService;
 	@Autowired
 	CouponService couponService;
-
-	/** "/프로젝트이름" 에 해당하는 ContextPath 변수 주입 */
-	@Value("#{servletContext.contextPath}")
-	String contextPath;
-
 
 	/** 주문관리_취소 페이지 */
 	@RequestMapping(value = "/myOrder_cancel", method = RequestMethod.PUT)
@@ -82,77 +63,7 @@ public class YoonRestController {
 		}
 		return webHelper.getJsonData();
 	}
-
-	/** 장바구니_확인 페이지 */
-	@RequestMapping(value = "/myCart_ok", method = RequestMethod.PUT)
-	public Map<String, Object> myCart_ok(HttpServletRequest request) {
-
-		/** 1) 필요한 변수값 생성 */
-
-		int length = webHelper.getInt("length");
-		List<Integer> cartno = new ArrayList<Integer>();
-		List<Integer> selected_count = new ArrayList<Integer>();
-
-		Cart input = new Cart();
-
-		for (int i = 0; i < length; i++) {
-			cartno.add(webHelper.getInt("" + i));
-			selected_count.add(webHelper.getInt("mypc_quantity" + i));
-			if (selected_count.get(i) != 0) {
-				input.setCartno(cartno.get(i));
-				input.setSelected_count(selected_count.get(i));
-				try {
-					cartService.editQuantityCart(input);
-				} catch (Exception e) {
-					return webHelper.getJsonError(e.getLocalizedMessage());
-				}
-			}
-		}
-		return webHelper.getJsonData();
-	}
-
-	/** 장바구니_단일삭제 페이지 */
-	@RequestMapping(value = "/myCart_del/{cartno}", method = RequestMethod.DELETE)
-	public Map<String, Object> myCart_del(@PathVariable("cartno") int cartno, HttpServletRequest request) {
-
-		Cart input = new Cart();
-
-		input.setCartno(cartno);
-		try {
-			cartService.deleteCart(input);
-		} catch (Exception e) {
-			return webHelper.getJsonError(e.getLocalizedMessage());
-		}
-
-		return webHelper.getJsonData();
-	}
-
-	/** 장바구니_리스트삭제 페이지 */
-	@RequestMapping(value = "/myCart_del_list", method = RequestMethod.DELETE)
-	public Map<String, Object> myCart_del_list(HttpServletRequest request) {
-
-		/** 1) 필요한 변수값 생성 */
-
-		Cart input = new Cart();
-
-		String[] LtCartno = webHelper.getStringArray("mypc-chk-li");
-
-		int result = 0;
-
-		for (int i = 0; i < LtCartno.length; i++) {
-
-			result = Integer.parseInt(LtCartno[i]);
-			input.setCartno(result);
-			try {
-				cartService.deleteCart(input);
-			} catch (Exception e) {
-				return webHelper.getJsonError(e.getLocalizedMessage());
-			}
-		}
-
-		return webHelper.getJsonData();
-	}
-
+	
 	/** 결제_완료 페이지 */
 	@RequestMapping(value = "/myPay_ok", method = RequestMethod.POST)
 	public Map<String, Object> myPay_ok(HttpServletRequest request) {
@@ -407,21 +318,5 @@ public class YoonRestController {
 
 		return webHelper.getJsonData();
 	}
-
-	/** 쿠폰_삭제 페이지 */
-	@RequestMapping(value = "/myCoupon_del", method = RequestMethod.PUT)
-	public Map<String, Object> myCoupon_del(HttpServletRequest request) {
-
-		Coupon input = new Coupon();
-		int coupno = webHelper.getInt("coupno");
-		input.setCoupno(coupno);
-
-		try {
-			couponService.deleteCoupon(input);
-		} catch (Exception e) {
-			return webHelper.getJsonError(e.getLocalizedMessage());
-		}
-
-		return webHelper.getJsonData();
-	}
+	
 }
