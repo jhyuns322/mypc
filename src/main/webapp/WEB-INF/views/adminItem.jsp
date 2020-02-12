@@ -38,14 +38,13 @@
 			<table class="table table-hover">
 				<thead>
 					<tr>
-						<th class="col-md-1 text-center"><input class="mypc-cbxAll"
-							type="checkbox" /></th>
-						<th class="col-md-1 text-center">카테고리</th>
+						<th class="col-md-1 text-center"><input class="mypc-cbxAll" type="checkbox" /></th>
+						<th class="col-md-2 text-center">카테고리</th>
 						<th class="col-md-1 text-center">제조사</th>
 						<th class="col-md-2 text-center">상품이름</th>
 						<th class="col-md-2 text-center">스펙</th>
-						<th class="col-md-2 text-center">가격</th>
-						<th class="col-md-2 text-center">재고</th>
+						<th class="col-md-1 text-center">가격</th>
+						<th class="col-md-1 text-center">재고</th>
 						<th class="col-md-1 text-center">출시일</th>
 					</tr>
 				</thead>
@@ -135,7 +134,6 @@
 		</div>
 
 	</section>
-	<!---------------Content 끝--------------->
 
 	<%@ include file="./inc/footer.jsp"%>
 	<%@ include file="./inc/adminScript.jsp"%>

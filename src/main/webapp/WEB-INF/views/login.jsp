@@ -22,12 +22,12 @@
 					<!-- ID 입력창 -->
 					<div id="id_box" class="mypc-input-box form-group">
 						<input type="text" id="user_id" name="user_id" class="form-control" maxlength="20" />
-						<span> 아이디를 입력하세요. </span>
+						<span> 아이디 : member </span>
 					</div>	
 					<!-- PW 입력창 -->
 					<div id="pw_box" class="mypc-input-box form-group">
 						<input type="password" id="user_pw" name="user_pw" class="form-control" maxlength="20" />
-						<span> 비밀번호를 입력하세요. </span>
+						<span> 비밀번호 : 123qwe </span>
 					</div>
 				</fieldset>
 					<!-- submit button -->

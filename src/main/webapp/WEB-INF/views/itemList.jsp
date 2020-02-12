@@ -9,7 +9,6 @@
 <link type="text/css" rel="stylesheet"
 	href="${pageContext.request.contextPath}/assets/css/itemList.css" />
 </head>
-<!-- Head -->
 
 <body>
 	<%@ include file="./inc/userHeader.jsp"%>
@@ -17,7 +16,7 @@
 
 	<section class="contents clearfix">
 		<div class="container-fluid">
-			<img src="${pageContext.request.contextPath}/download?file=itemList_Pic1.jpeg" alt="itemList" class="img-responsive mypc-img">
+			<img src="${pageContext.request.contextPath}/download?file=itemList.jpeg" alt="itemList" class="img-responsive mypc-img">
 		</div>
 
 		<hr />
@@ -60,11 +59,11 @@
 					<div class="col-md-11 box">
 						<ul>
 							<li><strong>CPU</strong> <span>Category CPU</span>
-								<img src="${pageContext.request.contextPath}/download?file=cpu1.jpg" data-submenu="CPU" /></li>
+								<img src="${pageContext.request.contextPath}/download?file=cpu.jpg" data-submenu="CPU" /></li>
 						</ul>
 						<ul>
 							<li><strong>VGA</strong> <span>Category VGA</span>
-								<img src="${pageContext.request.contextPath}/download?file=VGA1.jpg" data-submenu="VGA" /></li>
+								<img src="${pageContext.request.contextPath}/download?file=vga.jpg" data-submenu="VGA" /></li>
 						</ul>
 						<ul>
 							<li><strong>Mainboard</strong> <span>Category Mainboard</span>
@@ -72,7 +71,7 @@
 						</ul>
 						<ul>
 							<li><strong>RAM</strong> <span>Category RAM</span>
-								<img src="${pageContext.request.contextPath}/download?file=RAM1.jpg" data-submenu="RAM" /></li>
+								<img src="${pageContext.request.contextPath}/download?file=ram.jpg" data-submenu="RAM" /></li>
 						</ul>
 						<ul>
 							<li><strong>SSD</strong> <span>Category SSD</span>

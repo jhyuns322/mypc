@@ -21,7 +21,6 @@ import com.son.mypc.helper.WebHelper;
 import com.son.mypc.model.Cart;
 import com.son.mypc.model.Coupon;
 import com.son.mypc.model.Item;
-import com.son.mypc.model.Member;
 import com.son.mypc.model.Order;
 import com.son.mypc.service.CartService;
 import com.son.mypc.service.CouponService;
@@ -58,102 +57,6 @@ public class YoonRestController {
 	@Value("#{servletContext.contextPath}")
 	String contextPath;
 
-	/** 회원정보 수정 페이지 */
-	@RequestMapping(value = "/myInfo_ok", method = RequestMethod.PUT)
-	public Map<String, Object> myInfo_ok(HttpServletRequest request) {
-
-		/** 1) 필요한 변수값 생성 */
-		// request 객체를 사용해서 세션 객체를 만들기
-		HttpSession session = request.getSession();
-		// session서버에 저장한 값을 mySession 변수에 담기
-		int mySession1 = (int) session.getAttribute("sessionMembno");
-		Member input = new Member();
-
-		input.setMembno(mySession1);
-
-		try {
-			input = memberService.getMemberItem(input);
-		} catch (Exception e) {
-			return webHelper.getJsonError(e.getLocalizedMessage());
-		}
-		String mypc_ch_pw = webHelper.getString("mypc_ch_pw");
-		String mypc_now_pw = webHelper.getString("mypc_now_pw");
-		String mypc_ch_pw_re = webHelper.getString("mypc_ch_pw_re");
-		String mypc_ch_email = webHelper.getString("mypc_ch_email");
-		String mypc_addr1 = webHelper.getString("mypc_addr1");
-		String mypc_addr2 = webHelper.getString("mypc_addr2");
-		String mypc_postcode = webHelper.getString("mypc_postcode");
-		String mypc_extraAddr = webHelper.getString("mypc_extraAddr");
-		String mypc_ch_tel = webHelper.getString("mypc_ch_tel");
-
-		String add_addr1 = mypc_postcode + "," + mypc_addr1 + "," + mypc_extraAddr;
-
-		String addr2 = mypc_addr2;
-
-		/** 유효성 검사 시작 **/
-		if (mypc_ch_pw == null && mypc_ch_pw == null && mypc_ch_email == null && mypc_ch_tel == null
-				&& mypc_addr1 == null) {
-			return webHelper.getJsonWarning("변동사항이 없습니다.");
-		} else {
-
-			/** 비밀번호 검사 시작 **/
-			if (mypc_now_pw == null) {
-				return webHelper.getJsonWarning("현재 비밀번호를 입력하세요.");
-			} else if (!input.getUser_pw().equals(mypc_now_pw)) {
-				return webHelper.getJsonWarning("현재 비밀번호가 틀렸습니다.");
-			} else {
-
-				/** 비밀번호 유효성 검사 시작 **/
-				if (mypc_ch_pw == null) {
-					// null값일경우 비밀번호 변경이 이루어지지 않는다고 판단하여 패스
-				} else if (mypc_ch_pw != null && mypc_ch_pw_re == null) {
-					return webHelper.getJsonWarning("변경할 비밀번호를 한번 더 입력하세요.");
-				} else if (!mypc_ch_pw.equals(mypc_ch_pw_re)) {
-					return webHelper.getJsonWarning("변경할 비밀번호가 다릅니다.");
-				} else {
-					input.setUser_pw(mypc_ch_pw);
-				}
-
-				/** 이메일 유효성 검사 시작 **/
-				if (mypc_ch_email == null) {
-					// null값일경우 이메일 변경이 이루어지지 않는다고 판단하여 패스
-				} else if (mypc_ch_email != null && input.getEmail().equals(mypc_ch_email)) {
-					return webHelper.getJsonWarning("변경 전 이메일과 다르게 입력하세요.");
-				} else {
-					input.setEmail(mypc_ch_email);
-				}
-
-				/** 연락처 유효성 검사 시작 **/
-				if (mypc_ch_tel == null) {
-					// null값일경우 연락처 변경이 이루어지지 않는다고 판단하여 패스
-				} else if (mypc_ch_tel != null && input.getTel() != null && input.getTel().equals(mypc_ch_tel)) {
-					return webHelper.getJsonWarning("변경 전 연락처와 다르게 입력하세요.");
-				} else {
-					input.setTel(mypc_ch_tel);
-				}
-
-				/** 주소지 유효성 검사 시작 **/
-				if (mypc_addr1 != null && mypc_addr2 != null) {
-					input.setAddr1(add_addr1);
-					input.setAddr2(addr2);
-				} else if (mypc_addr1 != null && mypc_addr2 == null) {
-					return webHelper.getJsonWarning("상세주소를 입력하세요.");
-				} else if (mypc_addr1 == null && mypc_addr2 != null) {
-					return webHelper.getJsonWarning("주소를 올바르게 입력하세요.");
-				}
-			}
-		}
-
-		// 수정된 결과를 조회하기 위한 객체
-		try {
-			memberService.editMember(input);
-			memberService.getMemberItem(input);
-		} catch (Exception e) {
-			return webHelper.getJsonError(e.getLocalizedMessage());
-		}
-
-		return webHelper.getJsonData();
-	}
 
 	/** 주문관리_취소 페이지 */
 	@RequestMapping(value = "/myOrder_cancel", method = RequestMethod.PUT)
@@ -356,55 +259,6 @@ public class YoonRestController {
 				return webHelper.getJsonError(e.getLocalizedMessage());
 			}
 
-			/** 더미 데이터 만들기 위한 반복문 시작 */
-//			for (int i = 0; i < 800; i++) {
-//				ordered_num = RandomData.randomOrderedNum();
-//				now_date = RandomData.randomOrderedDate();
-//				int count = RandomData.randomSelectedCount();
-//				String category = RandomData.randomCategory();
-//				int price = RandomData.randomPrice();
-//				String rel_date = RandomData.randomItemRelDate(now_date);
-//				String reg_date = RandomData.randomItemRelDate(rel_date);
-//				Random r = new Random();
-//				int membno = r.nextInt(10)+2;
-//				String itemName = "";
-//				String manufac = "";
-//				String spec = "";
-//				String img1 = "";
-//				String img2 = "";
-//				String img3 = "";
-//				String userName = "";
-//				String address1 = "";
-//				String address2 = "";
-//				String phone = "";
-//				o_input.setOrdered_num(ordered_num);
-//				o_input.setOrdered_date(now_date);
-//				o_input.setSelected_count(count);
-//				o_input.setCategory(category);
-//				o_input.setItem_name(itemName);
-//				o_input.setManufac(manufac);
-//				o_input.setSpec(spec);
-//				o_input.setPrice(price);
-//				o_input.setRel_date(rel_date);
-//				o_input.setReg_date(reg_date);
-//				o_input.setItem_img1(img1);
-//				o_input.setItem_img2(img2);
-//				o_input.setItem_imgthumb(img3);
-//				o_input.setMembno(membno);
-//				o_input.setName(userName);
-//				o_input.setAddr1(address1);
-//				o_input.setAddr2(address2);
-//				o_input.setTel(phone);
-//				try {
-//					orderService.addOrder(o_input);
-//				} catch (Exception e) {
-//					return webHelper.getJsonError(e.getLocalizedMessage());
-//				}
-//			}
-			/** 더미 데이터 만들기 위한 반복문 종료 */
-
-			/** 원본 */
-			/** 오더 정보 추가 **/
 			o_input.setOrdered_num(ordered_num);
 			o_input.setOrdered_date(now_date);
 			o_input.setSelected_count(1);
@@ -429,7 +283,7 @@ public class YoonRestController {
 			} catch (Exception e) {
 				return webHelper.getJsonError(e.getLocalizedMessage());
 			}
-			/** 원본 */
+
 			/** 쿠폰 사용여부 변경 **/
 			c_input.setCoupno(coupno);
 			c_input.setEnabled(o_input.getOrderno());
@@ -567,25 +421,6 @@ public class YoonRestController {
 		} catch (Exception e) {
 			return webHelper.getJsonError(e.getLocalizedMessage());
 		}
-
-		return webHelper.getJsonData();
-	}
-
-	/** 회원탈퇴 페이지 */
-	@RequestMapping(value = "/secession_ok", method = RequestMethod.DELETE)
-	public Map<String, Object> secession_ok(HttpServletRequest request) {
-
-		Member input = new Member();
-		int membno = webHelper.getInt("membno");
-		input.setMembno(membno);
-
-		try {
-			memberService.deleteMember(input);
-		} catch (Exception e) {
-			return webHelper.getJsonError(e.getLocalizedMessage());
-		}
-
-		webHelper.removeAllSession();
 
 		return webHelper.getJsonData();
 	}

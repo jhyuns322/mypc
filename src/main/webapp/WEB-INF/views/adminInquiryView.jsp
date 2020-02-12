@@ -10,7 +10,7 @@
 <body>
 	<%@ include file="./inc/adminHeader.jsp"%>
 
-	<!-- Content 시작 -->
+	<!-- content -->
 	<section class="container content">
 		<div class="row">
 			<div class="page-header mypc-margin"><div class="mypc-icon pull-right" onclick="location.href='adminInquiry'"><span class="glyphicon glyphicon-list"></span></div>
@@ -102,7 +102,6 @@
 			</form>
 		</div>
 	</section>
-	<!---------------Content 끝--------------->
 
 	<%@ include file="./inc/footer.jsp"%>
 	<%@ include file="./inc/adminScript.jsp"%>
@@ -110,9 +109,9 @@
 	<script type="text/javascript">
 		$(function() {
 			var userId = "${output.user_id}"
-			adminCommon(); // 로그아웃
+			adminCommon(); 		 // 로그아웃
 			buttonEvent(userId); // 문의글 이메일 회신 영역 확장
-			inquiryReplyVali(); // 문의글 이메일 답변에 대한 유효성 검사와 전송
+			inquiryReplyVali();  // 문의글 이메일 답변에 대한 유효성 검사와 전송
 		});
 	</script>
 </body>

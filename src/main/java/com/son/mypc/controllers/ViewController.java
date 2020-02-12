@@ -104,6 +104,7 @@ public class ViewController {
         model.addAttribute("search", search);
         model.addAttribute("sessionUserId", session);
         model.addAttribute("cookieValues", cookie);
+        
         return new ModelAndView("itemList");
     }
 
@@ -124,6 +125,7 @@ public class ViewController {
 
         model.addAttribute("item", item);
         model.addAttribute("cookieValues", cookie);
+        
         return new ModelAndView("itemView");
     }
 
@@ -736,8 +738,7 @@ public class ViewController {
 		int outputReplied = 0;
 
 		try {
-			// 관리자를 제외하고 카운트하기 위해서 -1
-			outputMember = memberService.getMemberCount(inputMember) - 1;
+			outputMember = memberService.getMemberCount(inputMember);
 			outputReplied = documentService.getInquiryCount(inputReplied);
 		} catch (Exception e) {
 			return webHelper.redirect(null, e.getLocalizedMessage());

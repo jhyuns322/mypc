@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page trimDirectiveWhitespaces="true"%>
-
 <!DOCTYPE html>
 <html lang="ko">
 <%@ include file="./inc/head.jsp"%>
@@ -10,7 +9,7 @@
 <body>
 	<%@ include file="./inc/adminHeader.jsp"%>
 
-	<!-- Content 시작 -->
+	<!-- content -->
 	<section class="container content">
 		<div class="row">
 			<div class="page-header mypc-margin"><div class="mypc-icon pull-right" onclick="location.href='adminIndex'"><span class="glyphicon glyphicon-home"></span></div>
@@ -31,8 +30,7 @@
 			<table class="table table-hover">
 				<thead>
 					<tr>
-						<th class="col-md-1 text-center"><input class="mypc-cbxAll"
-							type="checkbox" /></th>
+						<th class="col-md-1 text-center"><input class="mypc-cbxAll" type="checkbox" /></th>
 						<th class="col-md-5 text-center">제목</th>
 						<th class="col-md-2 text-center">작성자</th>
 						<th class="col-md-2 text-center">작성일</th>
@@ -134,16 +132,15 @@
 			</div>
 		</div>
 	</section>
-	<!-- Content 끝 -->
-
+	
 	<%@ include file="./inc/footer.jsp"%>
 	<%@ include file="./inc/adminScript.jsp"%>
 	<script src="./assets/js/adminInquiry.js"></script>
 	<script type="text/javascript">
 		$(function() {
 			var contextPath = "${pageContext.request.contextPath}";
-			adminCommon(); // 로그아웃
-			allCheck(); // 체크 박스 일괄 체크
+			adminCommon();			    // 로그아웃
+			allCheck(); 				// 체크 박스 일괄 체크
 			removeInquiry(contextPath); // 문의글 삭제
 		});
 	</script>
