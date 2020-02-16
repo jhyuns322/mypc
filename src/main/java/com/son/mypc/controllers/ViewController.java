@@ -268,7 +268,7 @@ public class ViewController {
 		inputDocument.setSubject(subject);
 
 		List<Document> output = null; // 조회결과가 저장될 객체
-		PageData pageData = null; // 페이지 번호를 계산한 결과가 저장될 객체
+		PageData pageData = null;     // 페이지 번호를 계산한 결과가 저장될 객체
 
 		try {
 			// 전체 게시글 수 조회

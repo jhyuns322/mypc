@@ -30,11 +30,10 @@ public class CartController {
 	CartService cartService;
 	@Autowired
 	ItemService itemService;
-	/** 장바구니_확인 페이지 */
+	
+	/** 장바구니 확인 */
 	@RequestMapping(value = "/myCart_ok", method = RequestMethod.PUT)
 	public Map<String, Object> myCart_ok(HttpServletRequest request) {
-
-		/** 1) 필요한 변수값 생성 */
 
 		int length = webHelper.getInt("length");
 		List<Integer> cartno = new ArrayList<Integer>();
@@ -58,7 +57,7 @@ public class CartController {
 		return webHelper.getJsonData();
 	}
 
-	/** 장바구니_단일삭제 페이지 */
+	/** 장바구니 단일 삭제 */
 	@RequestMapping(value = "/myCart_del/{cartno}", method = RequestMethod.DELETE)
 	public Map<String, Object> myCart_del(@PathVariable("cartno") int cartno, HttpServletRequest request) {
 
@@ -70,24 +69,19 @@ public class CartController {
 		} catch (Exception e) {
 			return webHelper.getJsonError(e.getLocalizedMessage());
 		}
-
 		return webHelper.getJsonData();
 	}
 
-	/** 장바구니_리스트삭제 페이지 */
+	/** 장바구니 다중 삭제 */
 	@RequestMapping(value = "/myCart_del_list", method = RequestMethod.DELETE)
 	public Map<String, Object> myCart_del_list(HttpServletRequest request) {
 
-		/** 1) 필요한 변수값 생성 */
-
 		Cart input = new Cart();
-
 		String[] LtCartno = webHelper.getStringArray("mypc-chk-li");
 
 		int result = 0;
 
 		for (int i = 0; i < LtCartno.length; i++) {
-
 			result = Integer.parseInt(LtCartno[i]);
 			input.setCartno(result);
 			try {
@@ -96,18 +90,16 @@ public class CartController {
 				return webHelper.getJsonError(e.getLocalizedMessage());
 			}
 		}
-
 		return webHelper.getJsonData();
 	}
 	
-	/** 작성 폼에 대한 action 페이지 */
+	/** 장바구니 추가 */
 	@RequestMapping(value = "/addCart{itemno}", method = RequestMethod.POST)
 	public Map<String, Object> addCart(@PathVariable("itemno") int itemno) {
 
 		/** 1) 필요한 변수값 생성 */
-		// request 객체를 사용해서 세션 객체를 만들기
 		HttpSession session = webHelper.getSession();
-		// session서버에 저장한 값을 userId 변수에 담기
+
 		int membno = 0;
 
 		try {
@@ -117,13 +109,12 @@ public class CartController {
 		}
 
 		/** 2) 상품 리스트에서 선택한 상품 번호 조회 */
-
 		Item inputItem = new Item();
-		// 저장된 결과를 조회하기 위한 객체
+
 		Item outputItem = null;
 		try {
 			// 데이터 저장
-			// --> 데이터 저장에 성공하면 파라미터로 전달하는 input 객체에 PK값이 저장된다.
+			// -> 데이터 저장에 성공하면 파라미터로 전달하는 input 객체에 PK값이 저장된다.
 			inputItem.setItemno(itemno);
 			// 데이터 조회
 			outputItem = itemService.getItem(inputItem);
@@ -132,7 +123,7 @@ public class CartController {
 		}
 
 		Cart input = new Cart();
-		input.setSelected_count(1); // 수정해야함
+		input.setSelected_count(1);
 		input.setItem_name(outputItem.getItem_name());
 		input.setManufac(outputItem.getManufac());
 		input.setSpec(outputItem.getSpec());
@@ -145,11 +136,10 @@ public class CartController {
 		input.setMembno(membno);
 		input.setItemno(itemno);
 
-		// 저장된 결과를 조회하기 위한 객체
 		List<Cart> output = null;
 		try {
 			// 데이터 저장
-			// --> 데이터 저장에 성공하면 파라미터로 전달하는 input 객체에 PK값이 저장된다.
+			// -> 데이터 저장에 성공하면 파라미터로 전달하는 input 객체에 PK값이 저장된다.
 			cartService.addCart(input);
 			// 데이터 조회
 			output = cartService.getCartList(input);
@@ -157,10 +147,8 @@ public class CartController {
 			return webHelper.getJsonError(e.getLocalizedMessage());
 		}
 
-		/** 7) 결과를 확인하기 위한 JSON 출력 */
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("item", output);
 		return webHelper.getJsonData(map);
 	}
-
 }

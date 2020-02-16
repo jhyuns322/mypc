@@ -26,6 +26,8 @@ public class StatsController {
 	ItemService itemService;
 	@Autowired
 	OrderService orderService;
+	
+	/** 상품 통계 */
     @RequestMapping(value = "/adminStatsGet/{chartno}", method = RequestMethod.GET)
 	public Map<String, Object> adminStats(@PathVariable int chartno) {
 		Map<String, Object> data = new HashMap<String, Object>();
@@ -86,5 +88,4 @@ public class StatsController {
 		/** 2) JSON 출력하기 */
 		return webHelper.getJsonData(data);
 	}
-    
 }

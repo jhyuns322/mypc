@@ -39,32 +39,7 @@ public class OrderPayController {
 	@Autowired
 	CouponService couponService;
 
-	/** 주문관리_취소 페이지 */
-	@RequestMapping(value = "/myOrder_cancel", method = RequestMethod.PUT)
-	public Map<String, Object> myOrder_cancel(HttpServletRequest request) {
-
-		String orderno_s = webHelper.getString("orderno");
-
-		if (orderno_s == null) {
-			return webHelper.getJsonWarning("상품이 없습니다.");
-		}
-
-		String[] orderno_list_s = orderno_s.split(",");
-		Order input = new Order();
-		input.setMembno(null);
-
-		for (int i = 0; i < orderno_list_s.length; i++) {
-			input.setOrderno(Integer.parseInt(orderno_list_s[i]));
-			try {
-				orderService.deleteOrder(input);
-			} catch (Exception e) {
-				return webHelper.getJsonError(e.getLocalizedMessage());
-			}
-		}
-		return webHelper.getJsonData();
-	}
-	
-	/** 결제_완료 페이지 */
+	/** 결제 */
 	@RequestMapping(value = "/myPay_ok", method = RequestMethod.POST)
 	public Map<String, Object> myPay_ok(HttpServletRequest request) {
 
@@ -315,8 +290,31 @@ public class OrderPayController {
 		} else if (webHelper.getString("itemnum") == null && webHelper.getStringArray("cartnum") == null) {
 			return webHelper.getJsonWarning("잘못된 접근입니다.");
 		}
-
 		return webHelper.getJsonData();
 	}
 	
+	/** 주문관리 취소 */
+	@RequestMapping(value = "/myOrder_cancel", method = RequestMethod.PUT)
+	public Map<String, Object> myOrder_cancel(HttpServletRequest request) {
+
+		String orderno_s = webHelper.getString("orderno");
+
+		if (orderno_s == null) {
+			return webHelper.getJsonWarning("상품이 없습니다.");
+		}
+
+		String[] orderno_list_s = orderno_s.split(",");
+		Order input = new Order();
+		input.setMembno(null);
+
+		for (int i = 0; i < orderno_list_s.length; i++) {
+			input.setOrderno(Integer.parseInt(orderno_list_s[i]));
+			try {
+				orderService.deleteOrder(input);
+			} catch (Exception e) {
+				return webHelper.getJsonError(e.getLocalizedMessage());
+			}
+		}
+		return webHelper.getJsonData();
+	}
 }

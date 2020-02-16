@@ -245,7 +245,7 @@ public class MemberController {
 		return webHelper.getJsonData(map);
 	}
 	
-	/** 로그인(세션 저장) 컨트롤러 */
+	/** 로그인 */
 	@RequestMapping(value = "sessionSave", method = RequestMethod.POST)
 	public Map<String, Object> sessionSave() {
 
@@ -387,7 +387,7 @@ public class MemberController {
 		}
 	}
 	
-	/** 7) 비밀번호 찾기(아이디와 이메일 일치 여부 검사 후 임시비밀번호 이메일 발송) 컨트롤러 */
+	/** 7) 비밀번호 찾기(아이디와 이메일 일치 여부 검사 후 임시비밀번호 이메일 발송) */
 	@RequestMapping(value = "findPwSendEmail", method = RequestMethod.POST)
 	public Map<String, Object> findPwSendEmail() {
 
@@ -454,7 +454,7 @@ public class MemberController {
 		return webHelper.getJsonData(map);
 	}
 
-	/** 13) 로그인(세션 저장) 컨트롤러(관리자) */
+	/** 로그인(관리자) */
 	@RequestMapping(value = "sessionSaveAdmin", method = RequestMethod.POST)
 	public Map<String, Object> sessionSaveAdmin() {
 
@@ -505,7 +505,7 @@ public class MemberController {
 		return webHelper.getJsonData(map);
 	}
 	
-	/** 14) 회원정보 수정 컨트롤러(관리자) */
+	/** 회원정보 수정(관리자) */
 	@RequestMapping(value = "memberEdit", method = RequestMethod.POST)
 	public Map<String, Object> memberEdit() {
 
@@ -582,7 +582,7 @@ public class MemberController {
 		return webHelper.getJsonData(map);
 	}
 
-	/** 15) 회원정보 수정 시 이메일 중복 검사 컨트롤러 */
+	/** 회원정보 수정 시 이메일 중복 검사 */
 	@RequestMapping(value = "emailCheckForUpdate", method = RequestMethod.GET)
 	public Map<String, Object> emailCheckForUpdate() {
 
@@ -622,7 +622,7 @@ public class MemberController {
 		return webHelper.getJsonData(map);
 	}
 
-	/** 16) 회원정보 삭제 컨트롤러(관리자) */
+	/** 회원정보 삭제(관리자) */
 	@RequestMapping(value = "memberDelete", method = RequestMethod.DELETE)
 	public Map<String, Object> memberDelete() {
 
@@ -646,7 +646,7 @@ public class MemberController {
 		return webHelper.getJsonData(map);
 	}
 	
-	/** 로그아웃(세션 삭제) 컨트롤러(공용) */
+	/** 로그아웃(공용) */
 	@RequestMapping(value = "sessionRemove", method = RequestMethod.GET)
 	public Map<String, Object> sessionRemove() {
 
@@ -656,7 +656,7 @@ public class MemberController {
 		return webHelper.getJsonData();
 	}
 	
-	/** 회원정보 수정 페이지 */
+	/** 회원정보 수정 */
 	@RequestMapping(value = "/myInfo_ok", method = RequestMethod.PUT)
 	public Map<String, Object> myInfo_ok(HttpServletRequest request) {
 
@@ -753,7 +753,7 @@ public class MemberController {
 		return webHelper.getJsonData();
 	}
 
-	/** 회원탈퇴 페이지 */
+	/** 회원 탈퇴 */
 	@RequestMapping(value = "/secession_ok", method = RequestMethod.DELETE)
 	public Map<String, Object> secession_ok(HttpServletRequest request) {
 

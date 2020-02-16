@@ -334,7 +334,7 @@ public class DocumentController {
 		return webHelper.getJsonData(map);
 	}
 
-	/** 문의글 삭제 컨트롤러(관리자) */
+	/** 문의글 삭제 (관리자) */
 	@RequestMapping(value = "deleteInquiry/{docno}", method = RequestMethod.DELETE)
 	public Map<String, Object> deleteInquiry(@PathVariable String[] docno) {
 

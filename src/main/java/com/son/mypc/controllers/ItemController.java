@@ -34,7 +34,6 @@ public class ItemController {
 	@Autowired
 	ItemService itemService;
 
-	
 	/** 목록 페이지 */
 	@RequestMapping(value = "/itemListGet", method = RequestMethod.GET)
 	public Map<String, Object> itemListGet(HttpServletRequest request,
@@ -129,7 +128,7 @@ public class ItemController {
 		return webHelper.getJsonData(data);
 	}
 
-	/** 작성 폼에 대한 action 페이지 */
+	/** 상품 등록 */
 	@RequestMapping(value = "/addItem", method = RequestMethod.POST)
 	public Map<String, Object> addItem() {
 
@@ -248,7 +247,8 @@ public class ItemController {
 		map.put("item", output);
 		return webHelper.getJsonData(map);
 	}
-	/** 상품 삭제 action 페이지 */
+	
+	/** 상품 삭제 */
 	@RequestMapping(value = "/removeItem/{itemno}", method = RequestMethod.DELETE)
 	public Map<String, Object> removeItem(@PathVariable String[] itemno) {
 
@@ -274,7 +274,7 @@ public class ItemController {
 		return webHelper.getJsonData(map);
 	}
 
-	/** 상품 수정 action 페이지 */
+	/** 상품 수정 */
 	@RequestMapping(value = "/editItem/{itemno}/{editImg}", method = RequestMethod.PUT)
 	public Map<String, Object> put(@PathVariable int itemno, @PathVariable String editImg) {
 		// 데이터 조에 필요한 조건값을 Beans에 저장하기
@@ -292,7 +292,6 @@ public class ItemController {
 		}
 
 		/** 2) 업로드 된 정보 추출 및 유효성 검사 */
-
 		// 파일 정보 추출
 		List<UploadItem> fileList = webHelper.getFileList();
 		// 그 밖의 일반 데이터를 저장하기 위한 컬렉션
@@ -461,7 +460,7 @@ public class ItemController {
 		return webHelper.getJsonData(map);
 	}
 
-	/** 쿠키 목록 페이지 */
+	/** 최근 본 상품 저장 */
 	@RequestMapping(value = "/cookieList", method = RequestMethod.POST)
 	public Map<String, Object> cookieList(HttpServletRequest request,
 			@RequestParam(value = "cookieValues[]", required = false) List<Integer> cookieValues) {
@@ -489,7 +488,7 @@ public class ItemController {
 		}
 	}
 	
-	/** 쿠키 삭제 action 페이지 */
+	/** 최근 본 상품 삭제 */
 	@RequestMapping(value = "/removeCookie/{key}", method = RequestMethod.DELETE)
 	public Map<String, Object> removeCookie(@PathVariable String key) {
 		webHelper.removeCookie(key);

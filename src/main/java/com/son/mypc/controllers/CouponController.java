@@ -33,7 +33,7 @@ public class CouponController {
 	@Autowired
 	CouponService couponService;
 	
-	/** 20) 쿠폰 지급 컨트롤러(관리자) */
+	/** 쿠폰 지급 */
 	@RequestMapping(value = "couponSet", method = RequestMethod.POST)
 	public Map<String, Object> couponSet() {
 
@@ -132,7 +132,7 @@ public class CouponController {
 		return webHelper.getJsonData(map);
 	}
 	
-	/** 쿠폰_삭제 페이지 */
+	/** 쿠폰 삭제 */
 	@RequestMapping(value = "/myCoupon_del", method = RequestMethod.PUT)
 	public Map<String, Object> myCoupon_del(HttpServletRequest request) {
 
