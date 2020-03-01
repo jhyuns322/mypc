@@ -204,7 +204,6 @@
 		WHERE itemno=#{itemno};
 	</update>
 
-
 	<!-- 데이터 삭제를 위한 기능 정의 -->
 	<delete id="deleteItem"
 		parameterType="com.son.mypc.model.Item">

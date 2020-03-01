@@ -11,7 +11,7 @@
 	.common-hide {
 		display: none;
 	}
-	/* top.jsp 영역 */
+	/* head.jsp 영역 */
 	.common-nav {
 		border-bottom: none;
 	}
@@ -83,7 +83,7 @@
 		margin-bottom: 40px;
 	}
 
-	/* bottom.jsp 영역 */
+	/* footer.jsp 영역 */
 	.common-container {
 		bottom: 0;
 		background-color: rgb(26, 26, 26);

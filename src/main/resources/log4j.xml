@@ -15,7 +15,7 @@
     <appender name="rollingFile" class="org.apache.log4j.RollingFileAppender">
         <!-- 로그 파일 생성위치 -->
         <param name="file" value="C:/Users/Jonghyun/Desktop/jh/workspace_portfolio/log/web.log" />
-<!--         <param name="file" value="/usr/local/tomcat8/webapps/log/web.log" /> -->
+<!--         <param name="file" value="/usr/local/tomcat8/webapps/log/mypc/web.log" /> -->
         <param name="Append" value="true" />
         <!-- 로그 파일 하나당 사이즈 100m -->
         <param name="MaxFileSize" value="100mb" />
@@ -30,7 +30,7 @@
     <appender name="errorFile" class="org.apache.log4j.DailyRollingFileAppender">
         <param name="Threshold" value="ERROR" />
         <param name="File" value="C:/Users/Jonghyun/Desktop/jh/workspace_portfolio/log/error.log" />
-<!--         <param name="file" value="/usr/local/tomcat8/webapps/log/error.log" />         -->
+<!--         <param name="file" value="/usr/local/tomcat8/webapps/log/mypc/error.log" />         -->
         <param name="Append" value="true" />
         <param name="DatePattern" value="'.'yyMMdd" />
         <layout class="org.apache.log4j.PatternLayout">
