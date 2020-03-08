@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
-/* 태블릿, 데스크탑 (width 768px 이상 css 적용) */
-@media ( min-width : 768px) {
+/* 데스크탑 (width 992px 이상 css 적용) */
+@media ( min-width : 992px) {
 	/* 주석형식 변경예정 */
 	/* 공통영역 */
 	body {
