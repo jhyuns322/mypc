@@ -175,7 +175,7 @@
 		<dependency>
 			<groupId>commons-io</groupId>
 			<artifactId>commons-io</artifactId>
-			<version>2.6</version>
+			<version>2.7</version>
 		</dependency>
 
 		<!-- Apache Commons FileUpload (2019-11-20일 기준 최신버전) -->
